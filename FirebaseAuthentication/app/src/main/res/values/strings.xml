@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">User Domain</string>
+    <string-array name="Faculty">
+        <item>Faculty of Arts</item>
+        <item>Faculty of Business Studies</item>
+        <item>Faculty of Biological Science</item>
+        <item>Faculty of Engineering and Technology</item>
+        <item>Faculty of Fine Arts</item>
+        <item>Faculty of Law</item>
+        <item>Faculty of Medicine</item>
+        <item>Faculty of Pharmacy</item>
+        <item>Faculty of Science</item>
+        <item>Faculty of Social Sciences</item>
+        <item>Faculty of Earth and Environmental Sciences</item>
+        <item>Faculty of Education</item>
+        <item>Faculty of Postgraduate Medical Sciences and Research</item>
+    </string-array>
+
+    <string-array name="FacultyofArts">
+        <item> Faculty Of Arts </item>
+        <item> Department of Bangla </item>
+        <item> Department of English </item>
+        <item> Department of Persian Language and Literature </item>
+        <item> Department of Philosophy </item>
+        <item> Department of History </item>
+        <item> Department of Arabic </item>
+        <item> Department of Islamic Study </item>
+        <item> Department of Islamic History and Culture </item>
+        <item> Department of Sanskrit and Pali </item>
+        <item> Department of Information Science and Library Management </item>
+        <item> Department of Languages and Linguistics </item>
+        <item> Department of Theater and Music </item>
+        <item> Department of World Religion and Culture </item>
+    </string-array>
+
+</resources>
