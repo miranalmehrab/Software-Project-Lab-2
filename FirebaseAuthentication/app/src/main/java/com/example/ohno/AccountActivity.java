@@ -47,6 +47,7 @@ public class AccountActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    private List<List<String>> faculty = new ArrayList<List<String>>();
 
 
     @Override
@@ -92,16 +93,9 @@ public class AccountActivity extends AppCompatActivity {
         departmentNameAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         departmentSpinner.setAdapter(departmentNameAdapter);
 */
-        List<String> notSelected = new ArrayList<String>();
 
-        String [] temp = {"love","kha"};
-        List<String> arts = new ArrayList<String>(Arrays.asList(temp));
-        String [] temp2 = {"Faculty Of Arts","one"};
-        List<String> bussiness = new ArrayList<String>(Arrays.asList(temp2));
+        departmentAddData();
 
-        final List<List<String>> faculty = new ArrayList<List<String>>();
-        faculty.add(arts);
-        faculty.add(bussiness);
 
         //System.out.println("faculty name" + faculty.get(1).get(0));
         Log.d(TAG, "faculty name" + faculty.get(1).get(0));
@@ -158,6 +152,24 @@ public class AccountActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    public void departmentAddData() {
+        String [] temp = {"Faculty of Arts","Department of Bangla", "Department of English",
+                "Department of Persian Language and Literature"," Department of Philosophy",
+                "Department of History", "Department of Arabic","Department of Islamic Study",
+                "Department of Islamic History and Culture"," Department of Sanskrit and Pali",
+                "Department of Information Science and Library Management",
+                "Department of Languages and Linguistics", "Department of Theater and Music",
+                "Department of World Religion and Culture"};
+        List<String> arts = new ArrayList<String>(Arrays.asList(temp));
+
+        String [] temp2 = {"Faculty Of Arts","one"};
+        List<String> bussiness = new ArrayList<String>(Arrays.asList(temp2));
+
+
+        faculty.add(arts);
+        faculty.add(bussiness);
     }
 
     @Override
