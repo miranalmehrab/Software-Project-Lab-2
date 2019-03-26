@@ -51,6 +51,7 @@ public class AccountActivity extends AppCompatActivity {
     private List<List<String>> faculty = new ArrayList<List<String>>();
     private String departmentName;
     private int pos;
+    private String year;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,19 +98,8 @@ public class AccountActivity extends AppCompatActivity {
 */
 
         addDepartmentData();
-
         departmentFunctions();
-        //Material Spinner
-
-
-        academicYearSpinner = (MaterialSpinner) findViewById(R.id.year);
-        ArrayAdapter <CharSequence> academicYearSpinnerAdapter = ArrayAdapter.createFromResource(AccountActivity.this,
-                R.array.Year, android.R.layout.simple_spinner_item);
-
-        academicYearSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        facultySpinner.setAdapter(academicYearSpinnerAdapter);
-
-
+        academicYearFunction();
 
         mLogOutButton = (Button) findViewById(R.id.logOutBtn);
 
@@ -123,7 +113,30 @@ public class AccountActivity extends AppCompatActivity {
 
     }
 
+    public void academicYearFunction() {
+
+        academicYearSpinner = (MaterialSpinner) findViewById(R.id.year);
+        ArrayAdapter <CharSequence> academicYearSpinnerAdapter = ArrayAdapter.createFromResource(AccountActivity.this,
+                R.array.Year, android.R.layout.simple_spinner_item);
+
+        academicYearSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        academicYearSpinner.setAdapter(academicYearSpinnerAdapter);
+
+        academicYearSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                year = parent.getItemAtPosition(position).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+    }
+
     public void departmentFunctions() {
+
         departmentSpinner = (MaterialSpinner) findViewById(R.id.departmentSpinner);
 
         facultySpinner = (MaterialSpinner) findViewById(R.id.materialSpinner);
@@ -354,15 +367,15 @@ public class AccountActivity extends AppCompatActivity {
             // Check if user's email is verified
             boolean emailVerified = user.isEmailVerified();
 
-            if(pos == 0 || pos ==-1){
+            if(pos == 0 || pos == -1){
 
                 Toast.makeText(AccountActivity.this,"Please choose a Department/Institute" ,
                         Toast.LENGTH_SHORT).show();
             }
             else {
-                UserProfile userProfile = new UserProfile(uid, name, email, departmentName , phoneText.getText().toString());
+                UserProfile userProfile = new UserProfile(uid, name, email, departmentName.toString() , year.toString());
                 mDatabaseReference.child(uid).setValue(userProfile);
-                mDatabaseReference.orderByKey();
+
 
                 Toast.makeText(AccountActivity.this, "Database add Successful.", Toast.LENGTH_SHORT).show();
             }

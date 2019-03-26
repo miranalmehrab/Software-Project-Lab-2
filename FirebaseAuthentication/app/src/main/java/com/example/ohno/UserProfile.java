@@ -6,14 +6,14 @@ public class UserProfile {
     private String name;
     private String email;
     private String department;
-    private String phone;
+    private String academicYear;
 
-    public UserProfile( String uid , String name , String email , String department , String phone ){
+    public UserProfile( String uid , String name , String email , String department , String academicYear ){
         this.uid = uid;
         this.name = name;
         this.email = email;
         this.department = department;
-        this.phone = phone;
+        this.academicYear = academicYear;
     }
 
     public String getuid() {
@@ -31,7 +31,7 @@ public class UserProfile {
         return department;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getAcademicYear() {
+        return academicYear;
     }
 }
