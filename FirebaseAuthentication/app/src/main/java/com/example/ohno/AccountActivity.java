@@ -39,6 +39,7 @@ public class AccountActivity extends AppCompatActivity {
     private Button submitBtn;
     MaterialSpinner facultySpinner;
     MaterialSpinner departmentSpinner;
+    MaterialSpinner academicYearSpinner;
 
     RecyclerView mrecyclerView;
 
@@ -48,7 +49,8 @@ public class AccountActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private List<List<String>> faculty = new ArrayList<List<String>>();
-
+    private String departmentName;
+    private int pos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,13 +96,34 @@ public class AccountActivity extends AppCompatActivity {
         departmentSpinner.setAdapter(departmentNameAdapter);
 */
 
-        departmentAddData();
+        addDepartmentData();
 
-
-        //System.out.println("faculty name" + faculty.get(1).get(0));
-        Log.d(TAG, "faculty name" + faculty.get(1).get(0));
+        departmentFunctions();
         //Material Spinner
 
+
+        academicYearSpinner = (MaterialSpinner) findViewById(R.id.year);
+        ArrayAdapter <CharSequence> academicYearSpinnerAdapter = ArrayAdapter.createFromResource(AccountActivity.this,
+                R.array.Year, android.R.layout.simple_spinner_item);
+
+        academicYearSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        facultySpinner.setAdapter(academicYearSpinnerAdapter);
+
+
+
+        mLogOutButton = (Button) findViewById(R.id.logOutBtn);
+
+        mLogOutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+            }
+        });
+
+
+    }
+
+    public void departmentFunctions() {
         departmentSpinner = (MaterialSpinner) findViewById(R.id.departmentSpinner);
 
         facultySpinner = (MaterialSpinner) findViewById(R.id.materialSpinner);
@@ -116,19 +139,31 @@ public class AccountActivity extends AppCompatActivity {
                 String facultyName = parent.getItemAtPosition(position).toString();
                 facultyName.trim();
 
-               // Toast.makeText(parent.getContext(),tt,Toast.LENGTH_SHORT).show();
+                //String l = position + "";
+                //Toast.makeText(parent.getContext(),l,Toast.LENGTH_SHORT).show();
+
                 for(int i=0 ; i< faculty.size() ; i++) {
                     String temp = faculty.get(i).get(0).toString();
                     temp.trim();
                     if (facultyName.equalsIgnoreCase(temp)) {
 
-                        Toast.makeText(parent.getContext(),"Match Found",Toast.LENGTH_SHORT).show();
+                        // Toast.makeText(parent.getContext(),"Match Found",Toast.LENGTH_SHORT).show();
                         ArrayAdapter<String> departmentSpinnerAdapter = new ArrayAdapter<String>(AccountActivity.this,
                                 android.R.layout.simple_spinner_dropdown_item  ,faculty.get(i));
                         departmentSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
                         departmentSpinner.setAdapter(departmentSpinnerAdapter);
+                        break;
 
+                    }
+                    else{
+                        List<String> empty = new ArrayList<String>();
+                        empty.add("No Department in this Faculty");
+                        ArrayAdapter<String> noDepartmentAdapter = new ArrayAdapter<String>(AccountActivity.this,
+                                android.R.layout.simple_spinner_dropdown_item  ,empty);
+                        noDepartmentAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+                        departmentSpinner.setAdapter(noDepartmentAdapter);
                     }
 
                 }
@@ -142,19 +177,24 @@ public class AccountActivity extends AppCompatActivity {
             }
         });
 
-        mLogOutButton = (Button) findViewById(R.id.logOutBtn);
 
-        mLogOutButton.setOnClickListener(new View.OnClickListener() {
+
+        departmentSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onClick(View v) {
-                FirebaseAuth.getInstance().signOut();
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                departmentName = parent.getItemAtPosition(position).toString();
+                pos = position;
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
 
-
     }
 
-    public void departmentAddData() {
+    public void addDepartmentData() {
         String [] temp = {"Faculty of Arts","Department of Bangla", "Department of English",
                 "Department of Persian Language and Literature","Department of Philosophy",
                 "Department of History", "Department of Arabic","Department of Islamic Study",
@@ -220,14 +260,7 @@ public class AccountActivity extends AppCompatActivity {
         };
         List<String> science = new ArrayList<String>(Arrays.asList(temp9));
 
-        String [] temp10 = {"Faculty of Business Studies","Department of Management Studies",
-                "Department of Accounting & Information Systems", "Department of Marketing",
-                "Department of Finance", "Department of Banking and Insurance",
-                "Department of Management Information Systems", "Department of International Business",
-                "Department of Tourism and Hospitality Management",
-                "Department of Organization Strategy and Leadership",
-        };
-        List<String> bussiness = new ArrayList<String>(Arrays.asList(temp10));
+
 
         String [] temp11 = {"Faculty of Social Sciences","Department of Economics",
                 "Department of Health Economics ", "Department of Political Science",
@@ -248,18 +281,19 @@ public class AccountActivity extends AppCompatActivity {
         };
         List<String> earthEnvironmentalSciences = new ArrayList<String>(Arrays.asList(temp12));
 
-        String [] temp2 = {"Faculty of Business Studies", "Department of Management Studies",
-                "Department of Accounting & Information Systems", "Department of Marketing",
-                "Department of Finance", "Department of Banking and Insurance",
-                "Department of Management Information Systems", "Department of International Business",
-                "Department of Tourism and Hospitality Management",
-                "Department of Organization Strategy and Leadership",
-        };
-        List<String> bussiness = new ArrayList<String>(Arrays.asList(temp2));
-
-
         faculty.add(arts);
         faculty.add(bussiness);
+        faculty.add(biology);
+        faculty.add(engineering);
+        faculty.add(fineArts);
+        faculty.add(law);
+        faculty.add(medicine);
+        faculty.add(pharmacy);
+        faculty.add(science);
+        faculty.add(socialSciences);
+        faculty.add(earthEnvironmentalSciences);
+
+
     }
 
     @Override
@@ -317,21 +351,21 @@ public class AccountActivity extends AppCompatActivity {
             final String email = emailText.getText().toString();
             Uri photoUrl = user.getPhotoUrl();
 
-            departmaentText = (EditText) findViewById(R.id.departmentName);
-            phoneText = (EditText) findViewById(R.id.phoneNo);
-
-
-
-
             // Check if user's email is verified
             boolean emailVerified = user.isEmailVerified();
 
+            if(pos == 0 || pos ==-1){
 
-            UserProfile userProfile = new UserProfile(uid, name, email, departmaentText.getText().toString(), phoneText.getText().toString());
-            mDatabaseReference.child(uid).setValue(userProfile);
+                Toast.makeText(AccountActivity.this,"Please choose a Department/Institute" ,
+                        Toast.LENGTH_SHORT).show();
+            }
+            else {
+                UserProfile userProfile = new UserProfile(uid, name, email, departmentName , phoneText.getText().toString());
+                mDatabaseReference.child(uid).setValue(userProfile);
+                mDatabaseReference.orderByKey();
 
-            Toast.makeText(AccountActivity.this, "Database add Successful.", Toast.LENGTH_SHORT).show();
-
+                Toast.makeText(AccountActivity.this, "Database add Successful.", Toast.LENGTH_SHORT).show();
+            }
         }
 
     }
