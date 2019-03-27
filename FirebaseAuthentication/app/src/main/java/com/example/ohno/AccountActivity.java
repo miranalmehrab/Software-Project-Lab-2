@@ -273,7 +273,18 @@ public class AccountActivity extends AppCompatActivity {
         };
         List<String> science = new ArrayList<String>(Arrays.asList(temp9));
 
+        String [] temp10 = {"Institutes","Institute of Education and Research" ,
+                "Institute of Statistical Research and Training",
+                "Institute of Business Administration","Institute of Social Welfare and Research",
+                "Institute of Modern Languages",
+                "Institute of Information Technology","Institute of Renewable Energy",
+                "Institute of Disaster Management and Vulnerability Studies",
+                "Institute of Health Economics",
+                "Institute of Leather Engineering & Technology",
+                "National Institute of Traumatology and Orthopaedic Rehabilitation"
+        };
 
+        List<String> institutes = new ArrayList<String>(Arrays.asList(temp10));
 
         String [] temp11 = {"Faculty of Social Sciences","Department of Economics",
                 "Department of Health Economics ", "Department of Political Science",
@@ -300,6 +311,7 @@ public class AccountActivity extends AppCompatActivity {
         faculty.add(engineering);
         faculty.add(fineArts);
         faculty.add(law);
+        faculty.add(institutes);
         faculty.add(medicine);
         faculty.add(pharmacy);
         faculty.add(science);
@@ -375,7 +387,6 @@ public class AccountActivity extends AppCompatActivity {
             else {
                 UserProfile userProfile = new UserProfile(uid, name, email, departmentName.toString() , year.toString());
                 mDatabaseReference.child(uid).setValue(userProfile);
-
 
                 Toast.makeText(AccountActivity.this, "Database add Successful.", Toast.LENGTH_SHORT).show();
             }
