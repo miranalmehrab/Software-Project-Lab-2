@@ -298,6 +298,8 @@
     <item format="float" name="hint_alpha_material_light" type="dimen">0.38</item>
     <item format="float" name="hint_pressed_alpha_material_dark" type="dimen">0.70</item>
     <item format="float" name="hint_pressed_alpha_material_light" type="dimen">0.54</item>
+    <dimen name="mcv_arrow_margin">4dp</dimen>
+    <dimen name="mcv_arrow_padding">4dp</dimen>
     <dimen name="notification_action_icon_size">32dp</dimen>
     <dimen name="notification_action_text_size">13sp</dimen>
     <dimen name="notification_big_circle_margin">12dp</dimen>
@@ -330,6 +332,7 @@
     <item name="home" type="id"/>
     <item name="line1" type="id"/>
     <item name="line3" type="id"/>
+    <item name="mcv_pager" type="id"/>
     <item name="progress_circular" type="id"/>
     <item name="progress_horizontal" type="id"/>
     <item name="split_action_bar" type="id"/>
@@ -386,6 +389,7 @@
     <string name="abc_shareactionprovider_share_with_application">Share with <ns1:g example="Mail" id="application_name">%s</ns1:g></string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
     <string name="app_name">Dhaka University Calendar</string>
+    <string name="calendar">Calendar</string>
     <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Enable</string>
     <string msgid="227660514972886228" name="common_google_play_services_enable_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t work unless you enable Google Play services.</string>
     <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Enable Google Play services</string>
@@ -405,6 +409,8 @@
     <string name="common_signin_button_text">Sign in</string>
     <string name="common_signin_button_text_long">Sign in with Google</string>
     <string name="google_map_API_key">AIzaSyC3veEqv2KbB90jkky3WXo4-Z87JRt9yic</string>
+    <string name="next">Go to next</string>
+    <string name="previous">Go to previous</string>
     <string name="search_menu_title">Search</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
@@ -1743,6 +1749,16 @@
     <style name="TextAppearance.Compat.Notification.Time.Media"/>
     <style name="TextAppearance.Compat.Notification.Title" parent="@android:style/TextAppearance.StatusBar.EventContent.Title"/>
     <style name="TextAppearance.Compat.Notification.Title.Media"/>
+    <style name="TextAppearance.MaterialCalendarWidget.Date" parent="android:TextAppearance.DeviceDefault.Small">
+    <item name="android:textSize">12sp</item>
+    <item name="android:textColor">@color/mcv_text_date_light</item>
+  </style>
+    <style name="TextAppearance.MaterialCalendarWidget.Header" parent="android:TextAppearance.DeviceDefault.Small">
+    <item name="android:textStyle">bold</item>
+  </style>
+    <style name="TextAppearance.MaterialCalendarWidget.WeekDay" parent="android:TextAppearance.DeviceDefault.Small">
+    <item name="android:textSize">12sp</item>
+  </style>
     <style name="TextAppearance.Widget.AppCompat.ExpandedMenu.Item" parent="Base.TextAppearance.Widget.AppCompat.ExpandedMenu.Item">
     </style>
     <style name="TextAppearance.Widget.AppCompat.Toolbar.Subtitle" parent="Base.TextAppearance.Widget.AppCompat.Toolbar.Subtitle">
@@ -2938,6 +2954,71 @@
 
 <attr format="float" name="latLngBoundsNorthEastLongitude"/>
 </declare-styleable>
+    <declare-styleable name="MaterialCalendarView">
+
+    <attr format="reference" name="mcv_dateTextAppearance"/>
+    <attr format="reference" name="mcv_weekDayTextAppearance"/>
+    <attr format="reference" name="mcv_headerTextAppearance"/>
+
+    <attr format="reference" name="mcv_leftArrow"/>
+    <attr format="reference" name="mcv_rightArrow"/>
+    <attr format="color" name="mcv_selectionColor"/>
+
+    <attr format="integer" name="mcv_showOtherDates">
+      <flag name="none" value="0"/>
+      <flag name="other_months" value="1"/>
+      <flag name="out_of_range" value="2"/>
+      <flag name="decorated_disabled" value="4"/>
+      <flag name="defaults" value="4"/>
+      <flag name="all" value="7"/>
+    </attr>
+
+    <attr format="boolean" name="mcv_allowClickDaysOutsideCurrentMonth"/>
+    <attr format="boolean" name="mcv_showWeekDays"/>
+
+    <attr format="reference" name="mcv_weekDayLabels"/>
+    <attr format="reference" name="mcv_monthLabels"/>
+
+    <!-- We want to accept match_parent but not wrap_content. It'd be better if we could
+    point to the real match_parent constant, but since it hasn't change since API 1,
+    I think it's safe to hardcode it-->
+    <attr format="dimension" name="mcv_tileSize">
+      <enum name="match_parent" value="-1"/>
+    </attr>
+    <attr format="dimension" name="mcv_tileHeight">
+      <enum name="match_parent" value="-1"/>
+    </attr>
+    <attr format="dimension" name="mcv_tileWidth">
+      <enum name="match_parent" value="-1"/>
+    </attr>
+
+    <attr format="enum" name="mcv_firstDayOfWeek">
+      <enum name="monday" value="1"/>
+      <enum name="tuesday" value="2"/>
+      <enum name="wednesday" value="3"/>
+      <enum name="thursday" value="4"/>
+      <enum name="friday" value="5"/>
+      <enum name="saturday" value="6"/>
+      <enum name="sunday" value="7"/>
+    </attr>
+
+    <attr format="enum" name="mcv_calendarMode">
+      <enum name="month" value="0"/>
+      <enum name="week" value="1"/>
+    </attr>
+
+    <attr format="enum" name="mcv_selectionMode">
+      <enum name="none" value="0"/>
+      <enum name="single" value="1"/>
+      <enum name="multiple" value="2"/>
+      <enum name="range" value="3"/>
+    </attr>
+
+    <attr format="enum" name="mcv_titleAnimationOrientation">
+      <enum name="vertical" value="0"/>
+      <enum name="horizontal" value="1"/>
+    </attr>
+  </declare-styleable>
     <declare-styleable name="MenuGroup">
 
         <!-- The ID of the group. -->
