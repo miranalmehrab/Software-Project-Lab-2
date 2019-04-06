@@ -1,4 +1,4 @@
-package com.example.ohno;
+package com.example.projektcalendar;
 
 public class UserProfile {
 

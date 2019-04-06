@@ -2,6 +2,7 @@
     <string name="app_name">User Domain</string>
     <string-array name="Faculty">
         <item>Faculty of Arts</item>
+        <item>Institutes</item>
         <item>Faculty of Business Studies</item>
         <item>Faculty of Biological Science</item>
         <item>Faculty of Engineering and Technology</item>

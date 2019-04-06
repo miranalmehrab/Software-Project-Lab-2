@@ -305,6 +305,8 @@ public class AccountActivity extends AppCompatActivity {
         };
         List<String> earthEnvironmentalSciences = new ArrayList<String>(Arrays.asList(temp12));
 
+
+
         faculty.add(arts);
         faculty.add(bussiness);
         faculty.add(biology);

@@ -1,4 +1,4 @@
-package com.example.ohno;
+package com.example.projektcalendar;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -6,14 +6,11 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -41,8 +38,6 @@ public class AccountActivity extends AppCompatActivity {
     MaterialSpinner departmentSpinner;
     MaterialSpinner academicYearSpinner;
 
-    RecyclerView mrecyclerView;
-
     DatabaseReference mDatabaseReference;
     FirebaseDatabase mFirebaseDatabase;
 
@@ -67,7 +62,7 @@ public class AccountActivity extends AppCompatActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if(firebaseAuth.getCurrentUser() == null){
 
-                    Intent intent = new Intent(getApplicationContext() , MainActivity.class);
+                    Intent intent = new Intent(getApplicationContext() , HomeActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                 }
@@ -317,7 +312,6 @@ public class AccountActivity extends AppCompatActivity {
         faculty.add(science);
         faculty.add(socialSciences);
         faculty.add(earthEnvironmentalSciences);
-
 
     }
 

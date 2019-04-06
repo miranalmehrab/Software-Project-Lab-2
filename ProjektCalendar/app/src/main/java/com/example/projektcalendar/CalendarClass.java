@@ -31,7 +31,7 @@ public class CalendarClass extends AppCompatActivity {
 
 
         addEvent(LocalDate.of(2019,2,23) , "Hellow");
-        addEvent(LocalDate.of(2019,2,26) , "Youre Dead");
+        addEvent(LocalDate.of(2019,2,26) , "Important Day");
 
         final EventDecorator eventDecorator = new EventDecorator(Color.RED,calendarDayList);
         myCalendar.addDecorator(eventDecorator);

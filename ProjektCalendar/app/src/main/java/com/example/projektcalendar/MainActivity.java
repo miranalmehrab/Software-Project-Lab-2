@@ -1,4 +1,4 @@
-package com.example.ohno;
+package com.example.projektcalendar;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         });
         // Configure Google Sign In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken("308297323914-232jj50aagg9dp5atggs6qbrlok86745.apps.googleusercontent.com")
+                .requestIdToken("848008259539-851s0e1lsqe59j0sbof7mr7k6466k0ru.apps.googleusercontent.com")
                 .requestEmail()
                 .build();
 
@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if(firebaseAuth.getCurrentUser() != null){
-                    startActivity(new Intent(MainActivity.this , AccountActivity.class));
+                    startActivity(new Intent(MainActivity.this , HomeActivity.class));
                 }
             }
         };

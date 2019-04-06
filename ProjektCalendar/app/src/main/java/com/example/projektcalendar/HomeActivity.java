@@ -11,21 +11,24 @@ import android.widget.ImageButton;
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
 
     ImageButton location;
+    ImageButton user;
     ImageButton exit;
     ImageButton calendar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_home);
 
         calendar = findViewById(R.id.imgCalendar);
+        user = findViewById(R.id.imgProfile);
         location = findViewById(R.id.imgLocation);
         exit = findViewById(R.id.imgExit);
 
-        calendar.setOnClickListener(this);
-        location.setOnClickListener(this);
-        exit.setOnClickListener(this);
+        calendar.setOnClickListener(HomeActivity.this);
+        user.setOnClickListener(HomeActivity.this);
+        location.setOnClickListener(HomeActivity.this);
+        exit.setOnClickListener(HomeActivity.this);
     }
 
 
@@ -40,6 +43,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.imgCalendar:
                 initCalendar();
+                break;
+            case R.id.imgProfile:
+                initProfile();
                 break;
             case R.id.imgExit:
                 confirmExit();
@@ -60,6 +66,11 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         startActivity(intent);
     }
 
+    void initProfile()
+    {
+        Intent intent = new Intent(HomeActivity.this, AccountActivity.class);
+        startActivity(intent);
+    }
 
     void confirmExit()
     {
@@ -70,7 +81,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(DialogInterface dialog, int which)
             {
-                System.exit(0);
+                finish();
             }
         });
 
@@ -78,7 +89,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(DialogInterface dialog, int which)
             {
-
+                dialog.dismiss();
             }
         });
 
