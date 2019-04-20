@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
+
+        tools:context=".Map_Activity" />
+
+
+    <LinearLayout
+        android:id="@+id/search"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:gravity="top"
+        android:background="@drawable/searchback"
+        android:orientation="horizontal">
+
+
+        <ImageButton
+            android:id="@+id/searchBtn"
+            android:layout_width="56dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="@drawable/autocompleteback"
+            android:baselineAlignBottom="true"
+            android:contentDescription="search"
+            android:src="@drawable/search" />
+
+
+        <AutoCompleteTextView
+            android:background="@drawable/autocompleteback"
+            android:id="@+id/autoCompleteTextView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:completionHint="Select a department"
+            android:completionThreshold="1"
+            android:hint="Select a department" />
+
+
+        <TextView
+            android:id="@+id/departments_suggestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Departments"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+</RelativeLayout>

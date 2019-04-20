@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">AuthorizedUser</string>
+    <string name="title_activity_add_description">AddDescription</string>
+</resources>

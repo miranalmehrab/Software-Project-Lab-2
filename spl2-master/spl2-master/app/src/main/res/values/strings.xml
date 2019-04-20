@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">SPL2</string>
+    <string-array name="departments">
+        <item>iit, du</item>
+        <item>cse, du</item>
+        <item>genetics, du</item>
+        <item>eee, du</item>
+        <item>pharmacy, du</item>
+        <item>isrt, du</item>
+    </string-array>
+</resources>
