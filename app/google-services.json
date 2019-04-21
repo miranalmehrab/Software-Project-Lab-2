@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "439618733182",
+    "firebase_url": "https://project-3853f.firebaseio.com",
+    "project_id": "project-3853f",
+    "storage_bucket": "project-3853f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:439618733182:android:9c26cad8779a8446",
+        "android_client_info": {
+          "package_name": "com.example.saira_000.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "439618733182-on89nbeoal1jhmj88maba965qiepl7hn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.saira_000.myapplication",
+            "certificate_hash": "51bb46f2bc42ee316c6b07c1b8dff7a6de0c104d"
+          }
+        },
+        {
+          "client_id": "439618733182-29vc7ie82hl8chpltppfvv8v6204bo25.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5kjB9nnrQoClGsRqEPzZhF2HHWp_X6TY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "439618733182-29vc7ie82hl8chpltppfvv8v6204bo25.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

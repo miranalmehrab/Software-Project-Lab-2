@@ -14,6 +14,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     ImageButton user;
     ImageButton exit;
     ImageButton calendar;
+    ImageButton info;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,11 +24,13 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         calendar = findViewById(R.id.imgCalendar);
         user = findViewById(R.id.imgProfile);
         location = findViewById(R.id.imgLocation);
+        info = findViewById(R.id.imgList);
         exit = findViewById(R.id.imgExit);
 
         calendar.setOnClickListener(HomeActivity.this);
         user.setOnClickListener(HomeActivity.this);
         location.setOnClickListener(HomeActivity.this);
+        info.setOnClickListener(HomeActivity.this);
         exit.setOnClickListener(HomeActivity.this);
     }
 
@@ -47,6 +50,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.imgProfile:
                 initProfile();
                 break;
+            case R.id.imgList:
+                initInfo();
+                break;
             case R.id.imgExit:
                 confirmExit();
                 break;
@@ -57,6 +63,12 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     void initMap()
     {
         Intent intent = new Intent(HomeActivity.this, MapClass.class);
+        startActivity(intent);
+    }
+
+    void initInfo()
+    {
+        Intent intent = new Intent(HomeActivity.this, InfoActivity.class);
         startActivity(intent);
     }
 
