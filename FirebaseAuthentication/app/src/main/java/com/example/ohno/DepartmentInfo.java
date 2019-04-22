@@ -4,18 +4,28 @@ import com.google.firebase.database.IgnoreExtraProperties;
 
 @IgnoreExtraProperties
 public class DepartmentInfo {
+    public String getmImageUrl() {
+        return mImageUrl;
+    }
+
+    public void setmImageUrl(String mImageUrl) {
+        this.mImageUrl = mImageUrl;
+    }
+
     private String departmentId;
     private String departmentName;
     private String description;
+    private String  mImageUrl;
     private int establishmentYear;
 
     public DepartmentInfo(){
         //this constructor is required
     }
 
-    public DepartmentInfo(String departmentId, String departmentName, String description, int establishmentYear) {
+    public DepartmentInfo(String departmentId, String departmentName, String mImageUrl, String description, int establishmentYear) {
         this.departmentId = departmentId;
         this.departmentName = departmentName;
+        this.mImageUrl = mImageUrl;
         this.description = description;
         this.establishmentYear = establishmentYear;
     }

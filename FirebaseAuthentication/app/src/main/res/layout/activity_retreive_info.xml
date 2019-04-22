@@ -4,7 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".InfoActivity">
+    tools:context=".retreiveInfoActivity">
+    
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
 
     <EditText
         android:id="@+id/departmentName"
@@ -16,7 +21,7 @@
         android:text="DepartmentName"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.399"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -40,6 +45,7 @@
         android:layout_width="279dp"
         android:layout_height="113dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="8dp"
         android:gravity="top"
         android:text="TextView"
@@ -49,19 +55,6 @@
         app:layout_constraintHorizontal_bias="0.232"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/DescriptionTitle" />
-
-    <Button
-        android:id="@+id/Upload"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="Upload"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.941"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Description" />
 
     <ImageView
         android:id="@+id/departmentImage"
@@ -74,21 +67,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/departmentName"
         tools:srcCompat="@tools:sample/avatars" />
-
-    <Button
-        android:id="@+id/chosebutton"
-        android:layout_width="64dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="Img"
-        app:layout_constraintBottom_toTopOf="@+id/departmentImage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.75"
-        app:layout_constraintStart_toEndOf="@+id/departmentName"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.32" />
 
 </android.support.constraint.ConstraintLayout>
