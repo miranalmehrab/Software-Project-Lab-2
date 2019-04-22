@@ -31,6 +31,14 @@ public class InfoOptions extends AppCompatActivity {
             }
         });
 
+        retrieveBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(InfoOptions.this , retreiveInfoActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
     }
 }
