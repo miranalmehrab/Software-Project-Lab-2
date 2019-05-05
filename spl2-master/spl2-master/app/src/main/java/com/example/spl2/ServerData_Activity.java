@@ -1,5 +1,6 @@
 package com.example.spl2;
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,20 +15,19 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class ServerData_Activity extends AsyncTask<String,Void,ArrayList<String>> {
+import static android.widget.Toast.makeText;
 
+public class ServerData_Activity extends AsyncTask<String,Void,String> {
 
+    //ArrayList<String> list=new ArrayList<>();
 
-    ArrayList<String> list=new ArrayList<>();
+    String list="";
 
     @Override
-    protected ArrayList<String> doInBackground(String... strings) {
-
+    protected String doInBackground(String... strings) {
         try
         {
             URL url =new URL(strings[0]);
-
-
 
             HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
             InputStream inputStream = httpURLConnection.getInputStream();
@@ -37,13 +37,12 @@ public class ServerData_Activity extends AsyncTask<String,Void,ArrayList<String>
             while(temp != null)
             {
                 temp = bufferedReader.readLine();
+
                 if(temp != null){
 
-                    list.add(temp);
+                    list = list + temp;
                 }
             }
-
-
 
         }catch (MalformedURLException e)
         {
@@ -57,7 +56,7 @@ public class ServerData_Activity extends AsyncTask<String,Void,ArrayList<String>
 
 
     @Override
-    protected void onPostExecute( ArrayList<String> list) {
+    protected void onPostExecute(String list) {
 
         super.onPostExecute(list);
 
