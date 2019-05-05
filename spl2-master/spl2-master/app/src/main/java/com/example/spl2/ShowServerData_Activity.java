@@ -21,7 +21,7 @@ public class ShowServerData_Activity extends AppCompatActivity
         setContentView(R.layout.activity_datafromserver);
         textView=findViewById(R.id.textView);
         try {
-            String list= new ServerData_Activity().execute("http://52.29.113.22/miran/server_php/science_dept.php").get();
+            String list= new ServerData_Activity().execute("http://52.29.113.22/miran/server_php/android_php.php").get();
             textView.setText(list);
         } catch (ExecutionException e) {
             e.printStackTrace();
