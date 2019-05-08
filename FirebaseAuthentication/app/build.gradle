@@ -49,5 +49,7 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'com.github.bumptech.glide:glide:4.9.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+//    implementation group: 'org.threeten', name: 'threetenbp', version: '0.7.2'
+    implementation 'com.jakewharton.threetenabp:threetenabp:1.2.0'
 }
 apply plugin: 'com.google.gms.google-services'
