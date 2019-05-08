@@ -14,9 +14,15 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+
 public class MainActivity extends AppCompatActivity {
 
-    String urladdress="http://jaisonjoy.com/android/displayprofile.php";
+
+    //String urladdress="http://jaisonjoy.com/android/displayprofile.php";
+    //String urladdress= "http://52.29.113.22/miran/server_php/android_php.php";
+    String urladdress="http://52.29.113.22/miran/DUC/android/androidTemp.php";
+//    String urladdress="http://52.29.113.22/miran/DUC/android/get_dept.php";
+
     String[] name;
     String[] email;
     String[] imagepath;
@@ -84,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
             for(int i=0;i<=ja.length();i++){
                 jo=ja.getJSONObject(i);
                 name[i]=jo.getString("name");
-                email[i]=jo.getString("email");
+                email[i]=jo.getString("faculty");
                 imagepath[i]=jo.getString("photo");
             }
         }

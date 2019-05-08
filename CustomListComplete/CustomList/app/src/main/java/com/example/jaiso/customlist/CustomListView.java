@@ -16,9 +16,6 @@ import android.widget.TextView;
 
 import java.io.InputStream;
 
-/**
- * Created by jaiso on 13-02-2018.
- */
 
 public class CustomListView extends ArrayAdapter<String>{
 
