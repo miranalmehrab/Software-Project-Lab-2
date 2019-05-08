@@ -1,4 +1,4 @@
-package com.example.saira_000.serverretrofit;
+package com.example.ohno;
 
 import com.google.gson.annotations.SerializedName;
 
