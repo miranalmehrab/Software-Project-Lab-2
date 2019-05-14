@@ -21,6 +21,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+
+
         calendar = findViewById(R.id.imgCalendar);
         user = findViewById(R.id.imgProfile);
         location = findViewById(R.id.imgLocation);
@@ -94,14 +96,18 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             public void onClick(DialogInterface dialog, int which)
             {
                 finish();
+                moveTaskToBack(true);
             }
         });
+
+
 
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which)
             {
                 dialog.dismiss();
+
             }
         });
 

@@ -6,9 +6,13 @@ public class Department {
 
     @SerializedName("id")
     private String id;
+    @SerializedName("name")
     private  String name;
+    @SerializedName("description")
     private  String description;
+    @SerializedName("faculty")
     private  String faculty;
+    @SerializedName("image")
     private String image;
 
     public Department(String id, String name, String description, String faculty , String image) {
