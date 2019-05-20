@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">User Domain</string>
+    <string name="app_name">DU Calendar</string>
     <string-array name="Faculty">
         <item>Faculty of Arts</item>
         <item>Institutes</item>

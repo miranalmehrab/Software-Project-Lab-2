@@ -1,11 +1,15 @@
 package com.example.ohno;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.io.Serializable;
 import java.util.List;
 
 import retrofit2.Call;
@@ -38,11 +42,23 @@ public class GetInfoActivity extends AppCompatActivity {
         call.enqueue(new Callback<List<Department>>() {
             @Override
             public void onResponse(Call<List<Department>> call, Response<List<Department>> response) {
-                List<Department> departments = response.body();
+                final List<Department> departments = response.body();
 
                 DepartmentListAdapter  departmentListAdapter = new DepartmentListAdapter(GetInfoActivity.this ,
                         R.layout.department_list_item ,departments );
                 listView.setAdapter(departmentListAdapter);
+                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        Department departmentTemp = departments.get(position);
+
+                       // Toast.makeText(GetInfoActivity.this , departmentTemp.getName(),Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(GetInfoActivity.this , DepartmentViewActivity.class);
+                        intent.putExtra("departmentCurrent" ,  departmentTemp);
+                        startActivity(intent);
+
+                    }
+                });
 
                 for(Department d : departments){
                     Log.d("id" , d.getId() );

@@ -70,7 +70,8 @@ public class DepartmentListAdapter extends ArrayAdapter<Department> {
         holder.faculty.setText(department.getFaculty());
 
        // Picasso.get().load(department.getImageUrl()).into(departmentImageView);
-        Glide.with(context).load(department.getImage()).placeholder(R.drawable.ic_launcher_foreground).into(holder.departmentImg);
+        Glide.with(context).load(department.getImage())
+                .placeholder(R.drawable.ic_launcher_foreground).into(holder.departmentImg);
 
         //return super.getView(position, convertView, parent);
         return  view;
