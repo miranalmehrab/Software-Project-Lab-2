@@ -29,8 +29,9 @@ public class CalendarClass extends AppCompatActivity {
 
         myCalendar = (MaterialCalendarView) findViewById(R.id.calendarView);
 
+        int mon = 2;
 
-        addEvent(LocalDate.of(2019,2,23) , "Hellow");
+        addEvent(LocalDate.of(2019,mon,23) , "Hellow");
         addEvent(LocalDate.of(2019,2,26) , "Important Day");
 
         final EventDecorator eventDecorator = new EventDecorator(Color.RED,calendarDayList);
@@ -48,7 +49,7 @@ public class CalendarClass extends AppCompatActivity {
                     String temp = "CalendarDay{" + calendarDayList.get(i).getYear() +"-"+ calendarDayList.get(i).getMonth() +"-"+ calendarDayList.get(i).getDay() + "}";
                     if (s.equals(temp)) {
                         Intent intent = new Intent(CalendarClass.this ,com.example.ohno.ListViewEvent.class);
-                        intent.putExtra("event" , eventDescription.get(i));intent.putExtra("event" , eventDescription.get(i));
+                        intent.putExtra("event" , eventDescription.get(i));
                         startActivity(intent);
                         //Toast.makeText(getApplicationContext(), eventDescription.get(i).toString(), Toast.LENGTH_SHORT).show();
                     }

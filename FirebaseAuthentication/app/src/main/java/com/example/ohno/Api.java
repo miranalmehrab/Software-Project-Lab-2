@@ -11,4 +11,7 @@ public interface Api {
 
     @GET("androido.php")
     Call<List<Department>> getDepartments();
+
+    @GET("calendar.php")
+    Call<List<EventDay>> getEventDays();
 }
