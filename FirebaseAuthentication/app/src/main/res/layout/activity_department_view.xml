@@ -12,6 +12,7 @@
         android:layout_height="86dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="28dp"
+        android:layout_marginEnd="12dp"
         android:layout_marginBottom="8dp"
         android:fontFamily="sans-serif"
         android:gravity="center_horizontal"
@@ -20,8 +21,10 @@
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/departmentImage"
+        app:layout_constraintEnd_toStartOf="@+id/faculty"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/departmentImage"
@@ -49,7 +52,7 @@
         android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/faculty"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.348"
+        app:layout_constraintHorizontal_bias="0.432"
         app:layout_constraintStart_toEndOf="@+id/departmentName"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -57,13 +60,12 @@
         android:id="@+id/faculty"
         android:layout_width="77dp"
         android:layout_height="27dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="19dp"
         android:text="TextView"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.633"
         app:layout_constraintStart_toEndOf="@+id/departmentName"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
@@ -84,7 +86,7 @@
         app:layout_constraintTop_toBottomOf="@+id/departmentImage" />
 
     <TextView
-        android:id="@+id/description"
+        android:id="@+id/eventDescription"
         android:layout_width="355dp"
         android:layout_height="274dp"
         android:layout_marginStart="31dp"

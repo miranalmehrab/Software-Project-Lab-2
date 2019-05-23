@@ -25,7 +25,7 @@ public class DepartmentViewActivity extends AppCompatActivity {
         Department department = (Department) intent.getSerializableExtra("departmentCurrent");
 
         departmentImage = (ImageView) findViewById(R.id.departmentImage);
-        description = (TextView) findViewById(R.id.description);
+        description = (TextView) findViewById(R.id.eventDescription);
         departmentName = (TextView) findViewById(R.id.departmentName);
         faculty = (TextView) findViewById(R.id.faculty);
 
