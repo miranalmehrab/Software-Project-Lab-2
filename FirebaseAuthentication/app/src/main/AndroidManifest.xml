@@ -2,10 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ohno">
 
-    <uses-permission
-        android:name="android.permission.ACCESS_COARSE_LOCATION"
-        android:maxSdkVersion="22" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
@@ -19,16 +15,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".DepartmentViewActivity"></activity>
-        <activity android:name=".retreiveInfoActivity" />
-        <activity android:name=".InfoOptions" />
-        <activity android:name=".InfoActivity" />
-        <activity android:name=".AccountActivity" />
-        <activity android:name=".HomeActivity" />
-        <activity android:name=".MapClass" />
-        <activity android:name=".CalendarClass" />
-        <activity android:name=".ListViewEvent" />
-        <activity android:name=".GetInfoActivity" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyC3veEqv2KbB90jkky3WXo4-Z87JRt9yic"/>
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,6 +26,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".DepartmentViewActivity"></activity>
+        <activity android:name=".retreiveInfoActivity" />
+        <activity android:name=".InfoOptions" />
+        <activity android:name=".InfoActivity" />
+        <activity android:name=".AccountActivity" />
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".CalendarClass" />
+        <activity android:name=".ListViewEvent" />
+        <activity android:name=".GetInfoActivity" />
+
     </application>
 
 </manifest>

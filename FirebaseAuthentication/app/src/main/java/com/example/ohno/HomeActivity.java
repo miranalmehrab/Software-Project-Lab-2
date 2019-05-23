@@ -64,7 +64,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
     void initMap()
     {
-        Intent intent = new Intent(HomeActivity.this, MapClass.class);
+        Intent intent = new Intent(HomeActivity.this, Map_Activity.class);
         startActivity(intent);
     }
 
