@@ -1,5 +1,13 @@
 <resources>
     <string name="app_name">DU Calendar</string>
+    <string-array name="departments">
+        <item>iit, du</item>
+        <item>cse, du</item>
+        <item>genetics, du</item>
+        <item>eee, du</item>
+        <item>pharmacy, du</item>
+        <item>isrt, du</item>
+    </string-array>
     <string-array name="Faculty">
         <item>Faculty of Arts</item>
         <item>Institutes</item>
