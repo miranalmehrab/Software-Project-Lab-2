@@ -1,15 +1,10 @@
 package com.example.ohno;
 
-import android.content.ContentResolver;
-import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -17,19 +12,14 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
-import com.google.firebase.storage.UploadTask;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,11 +50,11 @@ public class retreiveInfoActivity extends AppCompatActivity {
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
-        departmentName  = (EditText) findViewById(R.id.departmentName);
+        departmentName  = (EditText) findViewById(R.id.hallName);
         description = (EditText) findViewById(R.id.Description);
         descriptionTitle = (TextView) findViewById(R.id.DescriptionTitle);
         upload = (Button) findViewById(R.id.Upload);
-        departmentImage = (ImageView) findViewById(R.id.departmentImage);
+        departmentImage = (ImageView) findViewById(R.id.hallImage);
         imageChoser = (Button) findViewById(R.id.chosebutton);
         //recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 

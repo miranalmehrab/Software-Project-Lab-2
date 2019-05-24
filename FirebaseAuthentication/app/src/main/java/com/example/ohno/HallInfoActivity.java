@@ -9,7 +9,6 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import java.io.Serializable;
 import java.util.List;
 
 import retrofit2.Call;
@@ -18,9 +17,9 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class GetInfoActivity extends AppCompatActivity {
+public class HallInfoActivity extends AppCompatActivity {
 
-    List<Department> list ;
+    List<Hall> list ;
     ListView listView;
 
     @Override
@@ -37,43 +36,43 @@ public class GetInfoActivity extends AppCompatActivity {
 
         listView = (ListView) findViewById(R.id.departMentListView);
 
-        Call<List<Department>> call = api.getDepartments();
+        Call<List<Hall>> call = api.getHall();
 
-        call.enqueue(new Callback<List<Department>>() {
+        call.enqueue(new Callback<List<Hall>>() {
             @Override
-            public void onResponse(Call<List<Department>> call, Response<List<Department>> response) {
-                final List<Department> departments = response.body();
+            public void onResponse(Call<List<Hall>> call, Response<List<Hall>> response) {
+                final List<Hall> hall = response.body();
 
-                DepartmentListAdapter  departmentListAdapter = new DepartmentListAdapter(GetInfoActivity.this ,
-                        R.layout.department_list_item ,departments );
-                listView.setAdapter(departmentListAdapter);
+                HallListAdapter  hallListAdapter = new HallListAdapter(HallInfoActivity.this ,
+                        R.layout.department_list_item ,hall );
+                listView.setAdapter(hallListAdapter);
                 listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        Department departmentTemp = departments.get(position);
+                        Hall hallTemp = hall.get(position);
 
-                       // Toast.makeText(GetInfoActivity.this , departmentTemp.getName(),Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(GetInfoActivity.this , DepartmentViewActivity.class);
-                        intent.putExtra("departmentCurrent" ,  departmentTemp);
+                       // Toast.makeText(DepartmentInfoActivity.this , departmentTemp.getName(),Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(HallInfoActivity.this , HallViewActivity.class);
+                        intent.putExtra("hallCurrent" ,  hallTemp);
                         startActivity(intent);
 
                     }
                 });
 
-                for(Department d : departments){
+                for(Hall d : hall){
                     Log.d("id" , d.getId() );
                     Log.d("name" , d.getName() );
                     Log.d("description" , d.getDescription() );
-                    Log.d("faculty" , d.getFaculty() );
+                    Log.d("faculty" , d.getEstablishedYear() );
                     Log.d("image",d.getImage());
-                    Toast.makeText(GetInfoActivity.this, d.getName() , Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(HallInfoActivity.this, d.getName() , Toast.LENGTH_SHORT).show();
                 }
 
             }
 
             @Override
-            public void onFailure(Call<List<Department>> call, Throwable t) {
-                Toast.makeText(GetInfoActivity.this, t.getMessage() , Toast.LENGTH_SHORT).show();
+            public void onFailure(Call<List<Hall>> call, Throwable t) {
+                Toast.makeText(HallInfoActivity.this, t.getMessage() , Toast.LENGTH_SHORT).show();
             }
         });
 

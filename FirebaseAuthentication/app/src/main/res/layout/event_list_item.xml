@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/eventDescription"
+        android:id="@+id/description"
         android:layout_width="380dp"
         android:layout_height="153dp"
         android:layout_marginStart="16dp"

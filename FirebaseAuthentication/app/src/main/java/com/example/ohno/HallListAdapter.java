@@ -15,18 +15,18 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
-public class DepartmentListAdapter extends ArrayAdapter<Department> {
+public class HallListAdapter extends ArrayAdapter<Hall> {
 
     Context context;
     int resource ;
-    List <Department> departmentList;
+    List <Hall> hallList;
 
-    public DepartmentListAdapter(Context context , int resource , List<Department> departmentList){
-        super(context , resource , departmentList);
+    public HallListAdapter(Context context , int resource , List<Hall> hallList){
+        super(context , resource , hallList);
 
         this.context = context;
         this.resource = resource;
-        this.departmentList = departmentList;
+        this.hallList = hallList;
     }
 
     private class MyviewHolder{
@@ -64,10 +64,10 @@ public class DepartmentListAdapter extends ArrayAdapter<Department> {
         }
 
 
-        Department department = departmentList.get(position);
+        Hall department = hallList.get(position);
 
         holder.departmentName.setText(department.getName());
-        holder.faculty.setText(department.getFaculty());
+        holder.faculty.setText(department.getEstablishedYear());
 
        // Picasso.get().load(department.getImageUrl()).into(departmentImageView);
         Glide.with(context).load(department.getImage())

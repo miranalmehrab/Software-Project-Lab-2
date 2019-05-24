@@ -7,7 +7,7 @@
     tools:context=".InfoActivity">
 
     <EditText
-        android:id="@+id/departmentName"
+        android:id="@+id/hallName"
         android:layout_width="182dp"
         android:layout_height="45dp"
         android:layout_marginStart="8dp"
@@ -33,7 +33,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.174"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/departmentImage" />
+        app:layout_constraintTop_toBottomOf="@+id/hallImage" />
 
     <EditText
         android:id="@+id/Description"
@@ -64,7 +64,7 @@
         app:layout_constraintTop_toBottomOf="@+id/Description" />
 
     <ImageView
-        android:id="@+id/departmentImage"
+        android:id="@+id/hallImage"
         android:layout_width="341dp"
         android:layout_height="149dp"
         android:layout_marginStart="8dp"
@@ -72,7 +72,7 @@
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/departmentName"
+        app:layout_constraintTop_toBottomOf="@+id/hallName"
         tools:srcCompat="@tools:sample/avatars" />
 
     <Button
@@ -84,10 +84,10 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:text="Img"
-        app:layout_constraintBottom_toTopOf="@+id/departmentImage"
+        app:layout_constraintBottom_toTopOf="@+id/hallImage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.75"
-        app:layout_constraintStart_toEndOf="@+id/departmentName"
+        app:layout_constraintStart_toEndOf="@+id/hallName"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.32" />
 

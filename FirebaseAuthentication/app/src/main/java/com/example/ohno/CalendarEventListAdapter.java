@@ -8,10 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.bumptech.glide.Glide;
 
 import java.util.List;
 
@@ -36,7 +33,7 @@ public class CalendarEventListAdapter extends ArrayAdapter<EventDay> {
 
         public MyviewHolder(View v) {
             this.eventName = (TextView) v.findViewById(R.id.eventName);
-            this.description = (TextView) v.findViewById(R.id.eventDescription);
+            this.description = (TextView) v.findViewById(R.id.description);
            
         }
 

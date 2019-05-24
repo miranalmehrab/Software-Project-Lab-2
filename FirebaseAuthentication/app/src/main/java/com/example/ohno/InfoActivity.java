@@ -50,11 +50,11 @@ public class InfoActivity extends AppCompatActivity {
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
-        departmentName  = (EditText) findViewById(R.id.departmentName);
+        departmentName  = (EditText) findViewById(R.id.hallName);
         description = (EditText) findViewById(R.id.Description);
         descriptionTitle = (TextView) findViewById(R.id.DescriptionTitle);
         upload = (Button) findViewById(R.id.Upload);
-        departmentImage = (ImageView) findViewById(R.id.departmentImage);
+        departmentImage = (ImageView) findViewById(R.id.hallImage);
         imageChoser = (Button) findViewById(R.id.chosebutton);
 
         mStorageReference = FirebaseStorage.getInstance().getReference("Departments");

@@ -3,9 +3,9 @@
     package="com.example.ohno">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -15,10 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyC3veEqv2KbB90jkky3WXo4-Z87JRt9yic"/>
-
+        <activity android:name=".InformationMenu"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,7 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DepartmentViewActivity"></activity>
+        <activity android:name=".DepartmentViewActivity" />
         <activity android:name=".retreiveInfoActivity" />
         <activity android:name=".InfoOptions" />
         <activity android:name=".InfoActivity" />
@@ -34,8 +31,10 @@
         <activity android:name=".HomeActivity" />
         <activity android:name=".CalendarClass" />
         <activity android:name=".ListViewEvent" />
-        <activity android:name=".GetInfoActivity" />
-
+        <activity android:name=".DepartmentInfoActivity" />
+        <activity android:name=".HallInfoActivity" />
+        <activity android:name=".HallViewActivity"/>
+        <activity android:name=".Map_Activity" />
     </application>
 
 </manifest>

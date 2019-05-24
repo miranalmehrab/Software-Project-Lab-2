@@ -7,7 +7,7 @@
     tools:context=".DepatmentActivity">
 
     <EditText
-        android:id="@+id/departmentName"
+        android:id="@+id/hallName"
         android:layout_width="182dp"
         android:layout_height="45dp"
         android:layout_marginStart="8dp"
@@ -32,7 +32,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.121"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/departmentName" />
+        app:layout_constraintTop_toBottomOf="@+id/hallName" />
 
     <EditText
         android:id="@+id/Description"

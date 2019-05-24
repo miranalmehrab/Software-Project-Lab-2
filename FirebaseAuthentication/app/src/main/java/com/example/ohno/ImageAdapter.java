@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.google.firebase.database.DatabaseReference;
@@ -75,11 +74,11 @@ public class ImageAdapter extends RecyclerView.Adapter <ImageAdapter.imageViewHo
         public imageViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            departmentName  = itemView.findViewById(R.id.departmentName);
+            departmentName  = itemView.findViewById(R.id.hallName);
             description = itemView.findViewById(R.id.Description);
             descriptionTitle = itemView.findViewById(R.id.DescriptionTitle);
             upload = itemView.findViewById(R.id.Upload);
-            departmentImage = itemView.findViewById(R.id.departmentImage);
+            departmentImage = itemView.findViewById(R.id.hallImage);
             imageChoser = itemView.findViewById(R.id.chosebutton);
 
         }

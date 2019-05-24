@@ -1,8 +1,8 @@
 package com.example.ohno;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
@@ -12,43 +12,43 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
-public class DepartmentViewActivity extends AppCompatActivity {
+public class HallViewActivity extends AppCompatActivity {
 
 
-    ImageView departmentImage;
+    ImageView hallImage;
     TextView description;
-    TextView departmentName;
+    TextView hallName;
     TextView faculty;
     Button btnMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_department_view);
+        setContentView(R.layout.activity_hall_view);
 
         Intent intent = getIntent();
-        final Department department = (Department) intent.getSerializableExtra("departmentCurrent");
+        final Hall hall = (Hall) intent.getSerializableExtra("hallCurrent");
 
-        departmentImage = (ImageView) findViewById(R.id.hallImage);
+        hallImage = (ImageView) findViewById(R.id.hallImage);
         description = (TextView) findViewById(R.id.description);
-        departmentName = (TextView) findViewById(R.id.hallName);
+        hallName = (TextView) findViewById(R.id.hallName);
         faculty = (TextView) findViewById(R.id.establishedYear);
         btnMap = (Button) findViewById(R.id.buttonMap);
 
         btnMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(DepartmentViewActivity.this , "Map for " + department.getName(),
-                        Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(HallViewActivity.this , "Map for " + hall.getName(),
+                 //       Toast.LENGTH_SHORT).show();
             }
         });
 
-        faculty.setText(department.getFaculty());
-        departmentName.setText(department.getName());
-        description.setText(department.getDescription().trim());
+        faculty.setText(hall.getEstablishedYear());
+        hallName.setText(hall.getName());
+        description.setText(hall.getDescription().trim());
         description.setMovementMethod(new ScrollingMovementMethod());
-        Glide.with(DepartmentViewActivity.this).load(department.getImage())
-                .placeholder(R.drawable.ic_launcher_foreground).into(departmentImage);
+        Glide.with(HallViewActivity.this).load(hall.getImage())
+                .placeholder(R.drawable.ic_launcher_foreground).into(hallImage);
 
 
     }

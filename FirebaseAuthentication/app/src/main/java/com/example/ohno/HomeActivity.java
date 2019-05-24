@@ -70,7 +70,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
     void initInfo()
     {
-        Intent intent = new Intent(HomeActivity.this, InfoOptions.class);
+        Intent intent = new Intent(HomeActivity.this, InformationMenu.class);
         startActivity(intent);
     }
 
