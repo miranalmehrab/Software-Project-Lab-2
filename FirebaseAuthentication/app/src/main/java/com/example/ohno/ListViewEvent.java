@@ -26,10 +26,11 @@ public class ListViewEvent extends AppCompatActivity {
         Intent intent = getIntent();
         String eventName = intent.getStringExtra("eventname");
         String description = intent.getStringExtra("eventdescription");
+        eventDayList = (List<EventDay>) intent.getSerializableExtra("eventList");
         eventlistDescription.add(description);
 
-        EventDay event  = new EventDay("1" , eventName , description , "000");
-        eventDayList.add(event);
+      //  EventDay event  = new EventDay("1" , eventName , description , "000");
+      //  eventDayList.add(event);
 
         CalendarEventListAdapter  eventListAdapter = new CalendarEventListAdapter(ListViewEvent.this ,
                 R.layout.event_list_item ,eventDayList );

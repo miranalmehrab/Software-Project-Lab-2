@@ -96,19 +96,28 @@ public class CalendarClass extends AppCompatActivity {
             public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
 
                 String s = myCalendar.getSelectedDate().toString();
+                List<EventDay> events = new ArrayList<EventDay>();
 
                 for(int i=0 ;i< eventDescription.size() ; i++ ) {
 
                     String temp = "CalendarDay{" + calendarDayList.get(i).getYear() +"-"+ calendarDayList.get(i).getMonth() +"-"+ calendarDayList.get(i).getDay() + "}";
                     if (s.equals(temp)) {
-                        Intent intent = new Intent(CalendarClass.this ,com.example.ohno.ListViewEvent.class);
-                        intent.putExtra("eventname" , eventName.get(i));
-                        intent.putExtra("eventdescription" , eventDescription.get(i));
-                        startActivity(intent);
-                        //Toast.makeText(getApplicationContext(), eventDescription.get(i).toString(), Toast.LENGTH_SHORT).show();
+                        EventDay eventDay = new EventDay( "1" , eventName.get(i) , eventDescription.get(i),s );
+                        events.add(eventDay);
                     }
 
                 }
+
+
+                Intent intent = new Intent(CalendarClass.this ,com.example.ohno.ListViewEvent.class);
+                intent.putExtra("eventname" , eventName.get(0));
+                intent.putExtra("eventdescription" , eventDescription.get(0));
+                intent.putExtra("eventList" , (ArrayList<EventDay>) events);
+                startActivity(intent);
+                //Toast.makeText(getApplicationContext(), eventDescription.get(i).toString(), Toast.LENGTH_SHORT).show();
+
+
+
             }
         });
     }
