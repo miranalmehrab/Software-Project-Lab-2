@@ -15,30 +15,30 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
-public class DepartmentListAdapter extends ArrayAdapter<Department> {
+public class ClubListAdapter extends ArrayAdapter<Club> {
 
     Context context;
     int resource ;
-    List <Department> departmentList;
+    List <Club> clubList;
 
-    public DepartmentListAdapter(Context context , int resource , List<Department> departmentList){
-        super(context , resource , departmentList);
+    public ClubListAdapter(Context context , int resource , List<Club> clubList){
+        super(context , resource , clubList);
 
         this.context = context;
         this.resource = resource;
-        this.departmentList = departmentList;
+        this.clubList = clubList;
     }
 
     private class MyviewHolder{
 
-        TextView departmentName;
-        TextView faculty;
-        ImageView departmentImg;
+        TextView clubName;
+        TextView establishYear;
+        ImageView clubImg;
 
         public MyviewHolder(View v) {
-            this.departmentName = (TextView) v.findViewById(R.id.clubName);
-            this.faculty = (TextView) v.findViewById(R.id.establishedYear);;
-            this.departmentImg = (ImageView) v.findViewById(R.id.clubImage);;
+            this.clubName = (TextView) v.findViewById(R.id.clubName);
+            this.establishYear = (TextView) v.findViewById(R.id.establishedYear);;
+            this.clubImg = (ImageView) v.findViewById(R.id.clubImage);;
         }
 
     }
@@ -64,14 +64,14 @@ public class DepartmentListAdapter extends ArrayAdapter<Department> {
         }
 
 
-        Department department = departmentList.get(position);
+        Club club = clubList.get(position);
 
-        holder.departmentName.setText(department.getName());
-        holder.faculty.setText(department.getFaculty());
+        holder.clubName.setText(club.getName());
+        holder.establishYear.setText(club.getEstablishedYear());
 
-       // Picasso.get().load(department.getImageUrl()).into(departmentImageView);
-        Glide.with(context).load(department.getImage())
-                .placeholder(R.drawable.ic_launcher_foreground).into(holder.departmentImg);
+       // Picasso.get().load(club.getImageUrl()).into(clubImageView);
+        Glide.with(context).load(club.getImage())
+                .placeholder(R.drawable.ic_launcher_foreground).into(holder.clubImg);
 
         //return super.getView(position, convertView, parent);
         return  view;

@@ -15,30 +15,30 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
-public class DepartmentListAdapter extends ArrayAdapter<Department> {
+public class OfficeListAdapter extends ArrayAdapter<Office> {
 
     Context context;
     int resource ;
-    List <Department> departmentList;
+    List <Office> officeList;
 
-    public DepartmentListAdapter(Context context , int resource , List<Department> departmentList){
-        super(context , resource , departmentList);
+    public OfficeListAdapter(Context context , int resource , List<Office> officeList){
+        super(context , resource , officeList);
 
         this.context = context;
         this.resource = resource;
-        this.departmentList = departmentList;
+        this.officeList = officeList;
     }
 
     private class MyviewHolder{
 
-        TextView departmentName;
-        TextView faculty;
-        ImageView departmentImg;
+        TextView officeName;
+        TextView establishYear;
+        ImageView officeImg;
 
         public MyviewHolder(View v) {
-            this.departmentName = (TextView) v.findViewById(R.id.clubName);
-            this.faculty = (TextView) v.findViewById(R.id.establishedYear);;
-            this.departmentImg = (ImageView) v.findViewById(R.id.clubImage);;
+            this.officeName = (TextView) v.findViewById(R.id.officeName);
+            this.establishYear = (TextView) v.findViewById(R.id.establishedYear);;
+            this.officeImg = (ImageView) v.findViewById(R.id.officeImage);;
         }
 
     }
@@ -64,14 +64,14 @@ public class DepartmentListAdapter extends ArrayAdapter<Department> {
         }
 
 
-        Department department = departmentList.get(position);
+        Office office = officeList.get(position);
 
-        holder.departmentName.setText(department.getName());
-        holder.faculty.setText(department.getFaculty());
+        holder.officeName.setText(office.getName());
+        holder.establishYear.setText(office.getEstablishedYear());
 
-       // Picasso.get().load(department.getImageUrl()).into(departmentImageView);
-        Glide.with(context).load(department.getImage())
-                .placeholder(R.drawable.ic_launcher_foreground).into(holder.departmentImg);
+       // Picasso.get().load(office.getImageUrl()).into(officeImageView);
+        Glide.with(context).load(office.getImage())
+                .placeholder(R.drawable.ic_launcher_foreground).into(holder.officeImg);
 
         //return super.getView(position, convertView, parent);
         return  view;

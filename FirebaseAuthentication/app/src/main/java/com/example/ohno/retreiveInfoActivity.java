@@ -50,11 +50,11 @@ public class retreiveInfoActivity extends AppCompatActivity {
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
-        departmentName  = (EditText) findViewById(R.id.hallName);
+        departmentName  = (EditText) findViewById(R.id.clubName);
         description = (EditText) findViewById(R.id.Description);
         descriptionTitle = (TextView) findViewById(R.id.DescriptionTitle);
         upload = (Button) findViewById(R.id.Upload);
-        departmentImage = (ImageView) findViewById(R.id.hallImage);
+        departmentImage = (ImageView) findViewById(R.id.clubImage);
         imageChoser = (Button) findViewById(R.id.chosebutton);
         //recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 

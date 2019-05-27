@@ -74,11 +74,11 @@ public class ImageAdapter extends RecyclerView.Adapter <ImageAdapter.imageViewHo
         public imageViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            departmentName  = itemView.findViewById(R.id.hallName);
+            departmentName  = itemView.findViewById(R.id.clubName);
             description = itemView.findViewById(R.id.Description);
             descriptionTitle = itemView.findViewById(R.id.DescriptionTitle);
             upload = itemView.findViewById(R.id.Upload);
-            departmentImage = itemView.findViewById(R.id.hallImage);
+            departmentImage = itemView.findViewById(R.id.clubImage);
             imageChoser = itemView.findViewById(R.id.chosebutton);
 
         }

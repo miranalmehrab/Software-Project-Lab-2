@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DepartmentViewActivity">
+    tools:context=".HallViewActivity">
 
     <TextView
-        android:id="@+id/hallName"
-        android:layout_width="259dp"
-        android:layout_height="58dp"
+        android:id="@+id/clubName"
+        android:layout_width="257dp"
+        android:layout_height="57dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="3dp"
@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/hallImage"
+        android:id="@+id/clubImage"
         android:layout_width="350dp"
         android:layout_height="272dp"
         android:layout_marginStart="31dp"
@@ -49,7 +49,7 @@
         android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/establishedYear"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/hallName"
+        app:layout_constraintStart_toEndOf="@+id/clubName"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -61,7 +61,7 @@
         android:text="TextView"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/hallName"
+        app:layout_constraintStart_toEndOf="@+id/clubName"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
@@ -78,12 +78,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hallImage" />
+        app:layout_constraintTop_toBottomOf="@+id/clubImage" />
 
     <TextView
         android:id="@+id/description"
-        android:layout_width="353dp"
-        android:layout_height="295dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="31dp"
         android:layout_marginTop="2dp"
         android:layout_marginEnd="27dp"
@@ -110,7 +110,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/hallImage"
+        app:layout_constraintTop_toBottomOf="@+id/clubImage"
         app:layout_constraintVertical_bias="0.0" />
 
 </android.support.constraint.ConstraintLayout>

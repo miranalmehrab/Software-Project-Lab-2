@@ -11,43 +11,43 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
-public class HallViewActivity extends AppCompatActivity {
+public class ClubViewActivity extends AppCompatActivity {
 
 
-    ImageView hallImage;
+    ImageView clubImage;
     TextView description;
-    TextView hallName;
+    TextView clubName;
     TextView establishedYear;
     Button btnMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hall_view);
+        setContentView(R.layout.activity_club_view);
 
         Intent intent = getIntent();
-        final Hall hall = (Hall) intent.getSerializableExtra("hallCurrent");
+        final Club club = (Club) intent.getSerializableExtra("clubCurrent");
 
-        hallImage = (ImageView) findViewById(R.id.clubImage);
+        clubImage = (ImageView) findViewById(R.id.clubImage);
         description = (TextView) findViewById(R.id.description);
-        hallName = (TextView) findViewById(R.id.clubName);
+        clubName = (TextView) findViewById(R.id.clubName);
         establishedYear = (TextView) findViewById(R.id.establishedYear);
         btnMap = (Button) findViewById(R.id.buttonMap);
 
         btnMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              //  Toast.makeText(HallViewActivity.this , "Map for " + hall.getName(),
+              //  Toast.makeText(ClubViewActivity.this , "Map for " + club.getName(),
                  //       Toast.LENGTH_SHORT).show();
             }
         });
 
-        establishedYear.setText(hall.getEstablishedYear());
-        hallName.setText(hall.getName());
-        description.setText(hall.getDescription().trim());
+        establishedYear.setText(club.getEstablishedYear());
+        clubName.setText(club.getName());
+        description.setText(club.getDescription().trim());
         description.setMovementMethod(new ScrollingMovementMethod());
-        Glide.with(HallViewActivity.this).load(hall.getImage())
-                .placeholder(R.drawable.ic_launcher_foreground).into(hallImage);
+        Glide.with(ClubViewActivity.this).load(club.getImage())
+                .placeholder(R.drawable.ic_launcher_foreground).into(clubImage);
 
 
     }

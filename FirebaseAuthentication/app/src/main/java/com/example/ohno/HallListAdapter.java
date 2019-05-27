@@ -31,14 +31,14 @@ public class HallListAdapter extends ArrayAdapter<Hall> {
 
     private class MyviewHolder{
 
-        TextView departmentName;
+        TextView hallName;
         TextView faculty;
-        ImageView departmentImg;
+        ImageView hallImg;
 
         public MyviewHolder(View v) {
-            this.departmentName = (TextView) v.findViewById(R.id.hallName);
-            this.faculty = (TextView) v.findViewById(R.id.establishedYear);;
-            this.departmentImg = (ImageView) v.findViewById(R.id.hallImage);;
+            this.hallName = (TextView) v.findViewById(R.id.clubName);
+            this.faculty = (TextView) v.findViewById(R.id.establishedYear);
+            this.hallImg = (ImageView) v.findViewById(R.id.clubImage);
         }
 
     }
@@ -64,14 +64,14 @@ public class HallListAdapter extends ArrayAdapter<Hall> {
         }
 
 
-        Hall department = hallList.get(position);
+        Hall hall = hallList.get(position);
 
-        holder.departmentName.setText(department.getName());
-        holder.faculty.setText(department.getEstablishedYear());
+        holder.hallName.setText(hall.getName());
+        holder.faculty.setText(hall.getEstablishedYear());
 
-       // Picasso.get().load(department.getImageUrl()).into(departmentImageView);
-        Glide.with(context).load(department.getImage())
-                .placeholder(R.drawable.ic_launcher_foreground).into(holder.departmentImg);
+       // Picasso.get().load(hall.getImageUrl()).into(hallImageView);
+        Glide.with(context).load(hall.getImage())
+                .placeholder(R.drawable.ic_launcher_foreground).into(holder.hallImg);
 
         //return super.getView(position, convertView, parent);
         return  view;

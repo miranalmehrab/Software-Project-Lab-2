@@ -35,6 +35,10 @@
         <activity android:name=".HallInfoActivity" />
         <activity android:name=".HallViewActivity"/>
         <activity android:name=".Map_Activity" />
+        <activity android:name=".ClubInfoActivity" />
+        <activity android:name=".ClubViewActivity"/>
+        <activity android:name=".OfficeInfoActivity" />
+        <activity android:name=".OfficeViewActivity"/>
     </application>
 
 </manifest>

@@ -17,9 +17,9 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class HallInfoActivity extends AppCompatActivity {
+public class ClubInfoActivity extends AppCompatActivity {
 
-    List<Hall> list ;
+    List<Club> list ;
     ListView listView;
 
     @Override
@@ -36,34 +36,34 @@ public class HallInfoActivity extends AppCompatActivity {
 
         listView = (ListView) findViewById(R.id.departMentListView);
 
-        Call<List<Hall>> call = api.getHall();
+        Call<List<Club>> call = api.getClub();
 
-        call.enqueue(new Callback<List<Hall>>() {
+        call.enqueue(new Callback<List<Club>>() {
             @Override
-            public void onResponse(Call<List<Hall>> call, Response<List<Hall>> response) {
-                final List<Hall> hall = response.body();
+            public void onResponse(Call<List<Club>> call, Response<List<Club>> response) {
+                final List<Club> clubList = response.body();
 
-                HallListAdapter  hallListAdapter = new HallListAdapter(HallInfoActivity.this ,
-                        R.layout.hall_list_item ,hall );
-                listView.setAdapter(hallListAdapter);
+                ClubListAdapter  clubListAdapter = new ClubListAdapter(ClubInfoActivity.this ,
+                        R.layout.club_list_item ,clubList );
+                listView.setAdapter(clubListAdapter);
                 listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        Hall hallTemp = hall.get(position);
+                        Club clubTemp = clubList.get(position);
 
                        // Toast.makeText(DepartmentInfoActivity.this , departmentTemp.getName(),Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(HallInfoActivity.this , HallViewActivity.class);
-                        intent.putExtra("hallCurrent" ,  hallTemp);
+                        Intent intent = new Intent(ClubInfoActivity.this , ClubViewActivity.class);
+                        intent.putExtra("clubCurrent" ,  clubTemp);
                         startActivity(intent);
 
                     }
                 });
 
-                for(Hall d : hall){
+                for(Club d : clubList){
                     Log.d("id" , d.getId() );
                     Log.d("name" , d.getName() );
                     Log.d("description" , d.getDescription() );
-                    Log.d("faculty" , d.getEstablishedYear() );
+                    Log.d("establishedYear" , d.getEstablishedYear() );
                     Log.d("image",d.getImage());
                    // Toast.makeText(HallInfoActivity.this, d.getName() , Toast.LENGTH_SHORT).show();
                 }
@@ -71,8 +71,8 @@ public class HallInfoActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<List<Hall>> call, Throwable t) {
-                Toast.makeText(HallInfoActivity.this, t.getMessage() , Toast.LENGTH_SHORT).show();
+            public void onFailure(Call<List<Club>> call, Throwable t) {
+                Toast.makeText(ClubInfoActivity.this, t.getMessage() , Toast.LENGTH_SHORT).show();
             }
         });
 

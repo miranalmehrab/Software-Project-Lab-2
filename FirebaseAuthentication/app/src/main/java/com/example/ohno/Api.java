@@ -17,4 +17,10 @@ public interface Api {
 
     @GET("hall.php")
     Call<List<Hall>> getHall();
+
+    @GET("club.php")
+    Call<List<Club>> getClub();
+
+    @GET("office.php")
+    Call<List<Office>> getOffice();
 }

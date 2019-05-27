@@ -42,14 +42,16 @@ public class InformationMenu extends AppCompatActivity {
         officeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(InformationMenu.this , OfficeInfoActivity.class);
+                startActivity(intent);
             }
         });
 
         clubBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(InformationMenu.this , ClubInfoActivity.class);
+                startActivity(intent);
             }
         });
     }
