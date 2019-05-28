@@ -29,9 +29,9 @@ public class DepartmentViewActivity extends AppCompatActivity {
         Intent intent = getIntent();
         final Department department = (Department) intent.getSerializableExtra("departmentCurrent");
 
-        departmentImage = (ImageView) findViewById(R.id.clubImage);
+        departmentImage = (ImageView) findViewById(R.id.image);
         description = (TextView) findViewById(R.id.description);
-        departmentName = (TextView) findViewById(R.id.clubName);
+        departmentName = (TextView) findViewById(R.id.name);
         faculty = (TextView) findViewById(R.id.establishedYear);
         btnMap = (Button) findViewById(R.id.buttonMap);
 
@@ -40,6 +40,11 @@ public class DepartmentViewActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(DepartmentViewActivity.this , "Map for " + department.getName(),
                         Toast.LENGTH_SHORT).show();
+                Intent intent =  new Intent(DepartmentViewActivity.this  , MapActivityInfrastructure.class);
+                intent.putExtra("longitude" ,department.getLongitude() );
+                intent.putExtra("latitude" , department.getLatitude());
+                intent.putExtra("name" , department.getName());
+                startActivity(intent);
             }
         });
 
@@ -48,7 +53,7 @@ public class DepartmentViewActivity extends AppCompatActivity {
         description.setText(department.getDescription().trim());
         description.setMovementMethod(new ScrollingMovementMethod());
         Glide.with(DepartmentViewActivity.this).load(department.getImage())
-                .placeholder(R.drawable.ic_launcher_foreground).into(departmentImage);
+                .placeholder(R.drawable.dulogo).into(departmentImage);
 
 
     }

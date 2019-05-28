@@ -36,9 +36,9 @@ public class ClubListAdapter extends ArrayAdapter<Club> {
         ImageView clubImg;
 
         public MyviewHolder(View v) {
-            this.clubName = (TextView) v.findViewById(R.id.clubName);
+            this.clubName = (TextView) v.findViewById(R.id.name);
             this.establishYear = (TextView) v.findViewById(R.id.establishedYear);;
-            this.clubImg = (ImageView) v.findViewById(R.id.clubImage);;
+            this.clubImg = (ImageView) v.findViewById(R.id.image);;
         }
 
     }
@@ -71,7 +71,7 @@ public class ClubListAdapter extends ArrayAdapter<Club> {
 
        // Picasso.get().load(club.getImageUrl()).into(clubImageView);
         Glide.with(context).load(club.getImage())
-                .placeholder(R.drawable.ic_launcher_foreground).into(holder.clubImg);
+                .placeholder(R.drawable.dulogo).into(holder.clubImg);
 
         //return super.getView(position, convertView, parent);
         return  view;

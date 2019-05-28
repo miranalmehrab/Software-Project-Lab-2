@@ -10,7 +10,7 @@
         android:layout_height="match_parent">
 
         <EditText
-            android:id="@+id/clubName"
+            android:id="@+id/name"
             android:layout_width="182dp"
             android:layout_height="45dp"
             android:layout_marginStart="8dp"
@@ -36,7 +36,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.174"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/clubImage" />
+            app:layout_constraintTop_toBottomOf="@+id/image" />
 
         <EditText
             android:id="@+id/Description"
@@ -55,7 +55,7 @@
             app:layout_constraintTop_toBottomOf="@+id/DescriptionTitle" />
 
         <ImageView
-            android:id="@+id/clubImage"
+            android:id="@+id/image"
             android:layout_width="341dp"
             android:layout_height="149dp"
             android:layout_marginStart="8dp"
@@ -63,7 +63,7 @@
             android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/clubName"
+            app:layout_constraintTop_toBottomOf="@+id/name"
             tools:srcCompat="@tools:sample/avatars" />
 
 

@@ -28,9 +28,9 @@ public class OfficeViewActivity extends AppCompatActivity {
         Intent intent = getIntent();
         final Office office = (Office) intent.getSerializableExtra("officeCurrent");
 
-        officeImage = (ImageView) findViewById(R.id.officeImage);
+        officeImage = (ImageView) findViewById(R.id.image);
         description = (TextView) findViewById(R.id.description);
-        officeName = (TextView) findViewById(R.id.officeName);
+        officeName = (TextView) findViewById(R.id.name);
         establishedYear = (TextView) findViewById(R.id.establishedYear);
         btnMap = (Button) findViewById(R.id.buttonMap);
 
@@ -47,7 +47,7 @@ public class OfficeViewActivity extends AppCompatActivity {
         description.setText(office.getDescription().trim());
         description.setMovementMethod(new ScrollingMovementMethod());
         Glide.with(OfficeViewActivity.this).load(office.getImage())
-                .placeholder(R.drawable.ic_launcher_foreground).into(officeImage);
+                .placeholder(R.drawable.dulogo).into(officeImage);
 
 
     }

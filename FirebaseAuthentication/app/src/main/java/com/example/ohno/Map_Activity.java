@@ -1,6 +1,7 @@
 package com.example.ohno;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -18,6 +19,12 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.example.ohno.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -26,12 +33,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 public class Map_Activity extends FragmentActivity implements OnMapReadyCallback, View.OnClickListener
-        {
+{
     private Marker marker;
     private GoogleMap mMap;
     private LocationManager locationManager;
@@ -55,6 +58,15 @@ public class Map_Activity extends FragmentActivity implements OnMapReadyCallback
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
+
+        Intent intent = getIntent();
+        /*String  longitude =  intent.getStringExtra("longitude");
+        String  latitude =  intent.getStringExtra("latitute");
+
+        double longitudes = Double.valueOf(longitude);
+        double latitutes = Double.parseDouble(latitude);
+        */
+
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
@@ -100,10 +112,10 @@ public class Map_Activity extends FragmentActivity implements OnMapReadyCallback
         switch(view.getId())
         {
             case R.id.searchBtn:
-                {
-                    geoLocate();
-                    break;
-                }
+            {
+                geoLocate();
+                break;
+            }
         }
     }
 
@@ -128,7 +140,9 @@ public class Map_Activity extends FragmentActivity implements OnMapReadyCallback
             Log.d(TAG,"name found");
             Address address = list.get(0);
 
-            LatLng latLng = new LatLng(address.getLatitude(),address.getLongitude());
+ //           LatLng latLng = new LatLng(address.getLatitude(),address.getLongitude());
+            LatLng latLng = new LatLng(23.728567,90.397864);
+
             mMap.addMarker(new MarkerOptions().position(latLng).title(address.getAddressLine(0)));
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng,15));
         }
@@ -165,8 +179,8 @@ public class Map_Activity extends FragmentActivity implements OnMapReadyCallback
         locationListener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
-                 try{
-                        latlang = new LatLng(location.getLatitude(), location.getLongitude());
+                try{
+                    latlang = new LatLng(location.getLatitude(), location.getLongitude());
                         /*if(marker == null) marker =  mMap.addMarker(new MarkerOptions().position(latlang).title("Current Location"));
                         else
                         {
@@ -174,8 +188,8 @@ public class Map_Activity extends FragmentActivity implements OnMapReadyCallback
                             marker =  mMap.addMarker(new MarkerOptions().position(latlang).title("Current Location"));
                         }*/
 
-                        /*.icon(BitmapDescriptorFactory.fromResource(R.drawable.truck)));*/
-                        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latlang, (float) 16.0));
+                    /*.icon(BitmapDescriptorFactory.fromResource(R.drawable.truck)));*/
+                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latlang, (float) 16.0));
                         /*mMap.addCircle(
                               new CircleOptions()
                                       .center(latlang)
@@ -186,16 +200,16 @@ public class Map_Activity extends FragmentActivity implements OnMapReadyCallback
 
                         );*/
 
-                        mMap.setTrafficEnabled(true);
-                        //mMap.isBuildingsEnabled();
+                    mMap.setTrafficEnabled(true);
+                    mMap.isBuildingsEnabled();
 
-                        mMap.setMyLocationEnabled(true);
-                        mMap.getUiSettings().setZoomControlsEnabled(true);
-                        mMap.getUiSettings().setRotateGesturesEnabled(true);
+                    mMap.setMyLocationEnabled(true);
+                    mMap.getUiSettings().setZoomControlsEnabled(true);
+                    mMap.getUiSettings().setRotateGesturesEnabled(true);
 
-                 }catch (SecurityException e){
-                     e.printStackTrace();
-                 }
+                }catch (SecurityException e){
+                    e.printStackTrace();
+                }
             }
 
             @Override

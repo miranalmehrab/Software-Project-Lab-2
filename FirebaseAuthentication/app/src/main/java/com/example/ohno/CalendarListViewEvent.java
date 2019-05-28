@@ -3,13 +3,12 @@ package com.example.ohno;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListViewEvent extends AppCompatActivity {
+public class CalendarListViewEvent extends AppCompatActivity {
 
     private ListView eventlist;
     List <EventDay> eventDayList = new ArrayList<EventDay>();
@@ -32,7 +31,7 @@ public class ListViewEvent extends AppCompatActivity {
       //  EventDay event  = new EventDay("1" , eventName , description , "000");
       //  eventDayList.add(event);
 
-        CalendarEventListAdapter  eventListAdapter = new CalendarEventListAdapter(ListViewEvent.this ,
+        CalendarEventListAdapter  eventListAdapter = new CalendarEventListAdapter(CalendarListViewEvent.this ,
                 R.layout.event_list_item ,eventDayList );
         eventlist.setAdapter(eventListAdapter);
 /*

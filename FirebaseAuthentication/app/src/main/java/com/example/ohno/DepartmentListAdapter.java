@@ -36,9 +36,9 @@ public class DepartmentListAdapter extends ArrayAdapter<Department> {
         ImageView departmentImg;
 
         public MyviewHolder(View v) {
-            this.departmentName = (TextView) v.findViewById(R.id.clubName);
+            this.departmentName = (TextView) v.findViewById(R.id.name);
             this.faculty = (TextView) v.findViewById(R.id.establishedYear);;
-            this.departmentImg = (ImageView) v.findViewById(R.id.clubImage);;
+            this.departmentImg = (ImageView) v.findViewById(R.id.image);;
         }
 
     }
@@ -71,7 +71,7 @@ public class DepartmentListAdapter extends ArrayAdapter<Department> {
 
        // Picasso.get().load(department.getImageUrl()).into(departmentImageView);
         Glide.with(context).load(department.getImage())
-                .placeholder(R.drawable.ic_launcher_foreground).into(holder.departmentImg);
+                .placeholder(R.drawable.dulogo).into(holder.departmentImg);
 
         //return super.getView(position, convertView, parent);
         return  view;

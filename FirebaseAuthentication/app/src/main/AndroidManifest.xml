@@ -15,7 +15,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".InformationMenu"></activity>
+        <activity android:name=".MapActivityInfrastructure"></activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyC3veEqv2KbB90jkky3WXo4-Z87JRt9yic" />
+
+        <activity android:name=".CalendarType" />
+        <activity android:name=".InformationMenu" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,15 +37,16 @@
         <activity android:name=".AccountActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".CalendarClass" />
-        <activity android:name=".ListViewEvent" />
+        <activity android:name=".CalendarListViewEvent" />
         <activity android:name=".DepartmentInfoActivity" />
         <activity android:name=".HallInfoActivity" />
-        <activity android:name=".HallViewActivity"/>
+        <activity android:name=".HallViewActivity" />
         <activity android:name=".Map_Activity" />
         <activity android:name=".ClubInfoActivity" />
-        <activity android:name=".ClubViewActivity"/>
+        <activity android:name=".ClubViewActivity" />
         <activity android:name=".OfficeInfoActivity" />
-        <activity android:name=".OfficeViewActivity"/>
+        <activity android:name=".OfficeViewActivity" />
+        <activity android:name=".PersonalCalendarClass"/>
     </application>
 
 </manifest>

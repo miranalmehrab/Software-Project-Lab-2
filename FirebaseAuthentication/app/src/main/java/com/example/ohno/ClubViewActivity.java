@@ -28,9 +28,9 @@ public class ClubViewActivity extends AppCompatActivity {
         Intent intent = getIntent();
         final Club club = (Club) intent.getSerializableExtra("clubCurrent");
 
-        clubImage = (ImageView) findViewById(R.id.clubImage);
+        clubImage = (ImageView) findViewById(R.id.image);
         description = (TextView) findViewById(R.id.description);
-        clubName = (TextView) findViewById(R.id.clubName);
+        clubName = (TextView) findViewById(R.id.name);
         establishedYear = (TextView) findViewById(R.id.establishedYear);
         btnMap = (Button) findViewById(R.id.buttonMap);
 
@@ -47,7 +47,7 @@ public class ClubViewActivity extends AppCompatActivity {
         description.setText(club.getDescription().trim());
         description.setMovementMethod(new ScrollingMovementMethod());
         Glide.with(ClubViewActivity.this).load(club.getImage())
-                .placeholder(R.drawable.ic_launcher_foreground).into(clubImage);
+                .placeholder(R.drawable.dulogo).into(clubImage);
 
 
     }

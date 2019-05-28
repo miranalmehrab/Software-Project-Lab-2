@@ -36,9 +36,9 @@ public class OfficeListAdapter extends ArrayAdapter<Office> {
         ImageView officeImg;
 
         public MyviewHolder(View v) {
-            this.officeName = (TextView) v.findViewById(R.id.officeName);
+            this.officeName = (TextView) v.findViewById(R.id.name);
             this.establishYear = (TextView) v.findViewById(R.id.establishedYear);;
-            this.officeImg = (ImageView) v.findViewById(R.id.officeImage);;
+            this.officeImg = (ImageView) v.findViewById(R.id.image);;
         }
 
     }
@@ -71,7 +71,7 @@ public class OfficeListAdapter extends ArrayAdapter<Office> {
 
        // Picasso.get().load(office.getImageUrl()).into(officeImageView);
         Glide.with(context).load(office.getImage())
-                .placeholder(R.drawable.ic_launcher_foreground).into(holder.officeImg);
+                .placeholder(R.drawable.dulogo).into(holder.officeImg);
 
         //return super.getView(position, convertView, parent);
         return  view;

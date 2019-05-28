@@ -15,6 +15,12 @@ public interface Api {
     @GET("calendar.php")
     Call<List<EventDay>> getEventDays();
 
+    @GET("calendarIIT.php")
+    Call<List<EventDay>> getIITevents();
+
+    @GET("calendarCSE.php")
+    Call<List<EventDay>> getCSEevents();
+
     @GET("hall.php")
     Call<List<Hall>> getHall();
 

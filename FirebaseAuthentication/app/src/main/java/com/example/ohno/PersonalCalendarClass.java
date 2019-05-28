@@ -3,12 +3,20 @@ package com.example.ohno;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.example.ohno.decorators.EventDecorator;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
@@ -24,12 +32,23 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class CalendarClass extends AppCompatActivity {
+public class PersonalCalendarClass extends AppCompatActivity {
 
     MaterialCalendarView myCalendar ;
     List <CalendarDay> calendarDayList = new ArrayList<CalendarDay>();
     List <String> eventDescription = new ArrayList<String>();
     List <String> eventName = new ArrayList<String>();
+
+    DatabaseReference reference;
+    FirebaseAuth auth ;
+    FirebaseUser user;
+    Retrofit retrofit;
+    Api api;
+    Call<List<EventDay>> call;
+
+    String departmentName = "lalala";
+
+
    // List<EventDay> events = new ArrayList<EventDay>();
 
     @Override
@@ -37,16 +56,24 @@ public class CalendarClass extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
 
+        Intent intent = getIntent();
+        departmentName = intent.getStringExtra("departmentName" );
+
+        //departmentName = "iit";
         myCalendar = (MaterialCalendarView) findViewById(R.id.calendarView);
 
-        Retrofit retrofit =  new Retrofit.Builder()
+        retrofit =  new Retrofit.Builder()
                 .baseUrl(Api.baseURL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        Api api = retrofit.create(Api.class);
 
-        Call<List<EventDay>> call = api.getEventDays();
+        api = retrofit.create(Api.class);
+        Toast.makeText(PersonalCalendarClass.this , departmentName , Toast.LENGTH_SHORT).show();
+        Log.d("department3" , departmentName);
+
+    //    call = api.getIITevents();
+        getApiCall();
 
         call.enqueue(new Callback<List<EventDay>>() {
             @Override
@@ -54,7 +81,7 @@ public class CalendarClass extends AppCompatActivity {
 
                 final List<EventDay> events  = response.body();
 
-               // Toast.makeText(CalendarClass.this, events.get(0).getName() , Toast.LENGTH_SHORT).show();
+                // Toast.makeText(CalendarClass.this, events.get(0).getName() , Toast.LENGTH_SHORT).show();
                 for(EventDay d : events){
                     String temp = d.getdate();
                     //String temp = "29/03/2019";
@@ -70,17 +97,17 @@ public class CalendarClass extends AppCompatActivity {
                     Log.d("eventname" , d.getName());
                     Log.d("description" , d.getDescription() );
                     Log.d("date" , d.getdate());
-                   // Toast.makeText(CalendarClass.this, d.getName() , Toast.LENGTH_SHORT).show();
+                    // Toast.makeText(CalendarClass.this, d.getName() , Toast.LENGTH_SHORT).show();
                 }
 
-                final EventDecorator eventDecorator = new EventDecorator(Color.RED,calendarDayList);
+                final EventDecorator eventDecorator = new EventDecorator(Color.BLUE,calendarDayList);
                 myCalendar.addDecorator(eventDecorator);
 
             }
 
             @Override
             public void onFailure(Call<List<EventDay>> call, Throwable t) {
-                Toast.makeText(CalendarClass.this, t.getMessage() , Toast.LENGTH_SHORT).show();
+                Toast.makeText(PersonalCalendarClass.this, t.getMessage() , Toast.LENGTH_SHORT).show();
             }
         });
 /*
@@ -105,18 +132,43 @@ public class CalendarClass extends AppCompatActivity {
 
                 }
 
-
-                Intent intent = new Intent(CalendarClass.this , CalendarListViewEvent.class);
+                Intent intent = new Intent(PersonalCalendarClass.this , CalendarListViewEvent.class);
                 intent.putExtra("eventname" , eventName.get(0));
                 intent.putExtra("eventdescription" , eventDescription.get(0));
                 intent.putExtra("eventList" , (ArrayList<EventDay>) events);
                 startActivity(intent);
                 //Toast.makeText(getApplicationContext(), eventDescription.get(i).toString(), Toast.LENGTH_SHORT).show();
 
-
-
             }
         });
+
+        Log.d("department5" , departmentName);
+
+    }
+
+    private void getApiCall( ) {
+
+        if(departmentName!=null ) {
+            if (departmentName.equalsIgnoreCase("Institute of Information Technology")) {
+                call = api.getIITevents();
+
+            } else if (departmentName.equalsIgnoreCase("Department of Computer Science and Engineering")) {
+                call = api.getCSEevents();
+
+            }
+           else  {
+               Toast.makeText(PersonalCalendarClass.this , "This Department is not yet added in database" ,
+                       Toast.LENGTH_SHORT).show();
+               call = api.getEventDays();
+            }
+        }
+        else{
+            Toast.makeText(PersonalCalendarClass.this , "Department name is Null ... Error" ,
+                    Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent();
+            startActivity(intent);
+        }
+
     }
 
     public void addEvent(LocalDate localDate , String eventN , String eventDes ){

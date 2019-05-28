@@ -36,9 +36,9 @@ public class HallListAdapter extends ArrayAdapter<Hall> {
         ImageView hallImg;
 
         public MyviewHolder(View v) {
-            this.hallName = (TextView) v.findViewById(R.id.clubName);
+            this.hallName = (TextView) v.findViewById(R.id.name);
             this.faculty = (TextView) v.findViewById(R.id.establishedYear);
-            this.hallImg = (ImageView) v.findViewById(R.id.clubImage);
+            this.hallImg = (ImageView) v.findViewById(R.id.image);
         }
 
     }
@@ -71,7 +71,7 @@ public class HallListAdapter extends ArrayAdapter<Hall> {
 
        // Picasso.get().load(hall.getImageUrl()).into(hallImageView);
         Glide.with(context).load(hall.getImage())
-                .placeholder(R.drawable.ic_launcher_foreground).into(holder.hallImg);
+                .placeholder(R.drawable.dulogo).into(holder.hallImg);
 
         //return super.getView(position, convertView, parent);
         return  view;

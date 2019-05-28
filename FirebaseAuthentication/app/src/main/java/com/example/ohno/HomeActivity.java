@@ -76,7 +76,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
     void initCalendar()
     {
-        Intent intent = new Intent(HomeActivity.this, CalendarClass.class);
+        Intent intent = new Intent(HomeActivity.this, CalendarType.class);
         startActivity(intent);
     }
 
