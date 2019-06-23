@@ -5,16 +5,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.view.View;
-import android.widget.ImageButton;
+import android.widget.Button;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
 
-    ImageButton location;
-    ImageButton user;
-    ImageButton exit;
-    ImageButton calendar;
-    ImageButton info;
+    CardView location;
+    CardView user;
+    Button exit;
+    CardView calendar;
+    CardView info;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
