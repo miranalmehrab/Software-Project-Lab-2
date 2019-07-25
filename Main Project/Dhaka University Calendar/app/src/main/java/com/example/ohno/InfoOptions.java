@@ -34,7 +34,7 @@ public class InfoOptions extends AppCompatActivity {
         retrieveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(InfoOptions.this , DepartmentInfoActivity.class);
+                Intent intent = new Intent(InfoOptions.this , FacultyScienceInfoActivity.class);
                 startActivity(intent);
             }
         });

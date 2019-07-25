@@ -1,6 +1,7 @@
 package com.example.ohno;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -32,12 +33,10 @@ public class DepartmentListAdapter extends ArrayAdapter<Department> {
     private class MyviewHolder{
 
         TextView departmentName;
-        TextView faculty;
         ImageView departmentImg;
 
         public MyviewHolder(View v) {
             this.departmentName = (TextView) v.findViewById(R.id.name);
-            this.faculty = (TextView) v.findViewById(R.id.establishedYear);;
             this.departmentImg = (ImageView) v.findViewById(R.id.image);;
         }
 
@@ -67,7 +66,6 @@ public class DepartmentListAdapter extends ArrayAdapter<Department> {
         Department department = departmentList.get(position);
 
         holder.departmentName.setText(department.getName());
-        holder.faculty.setText(department.getFaculty());
 
        // Picasso.get().load(department.getImageUrl()).into(departmentImageView);
         Glide.with(context).load(department.getImage())

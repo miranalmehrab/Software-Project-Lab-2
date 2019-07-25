@@ -8,6 +8,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
+        android:name=".FirebaseAuthentication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -15,7 +16,36 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".TransportMenu"></activity>
+        <activity android:name=".FacultyInfoActivity"></activity>
+        <activity android:name=".DuHistoryViewActivity"/>
+        <activity android:name=".FacultyViewActivity" />
+        <activity android:name=".DuHistoryInfoActivity"/>
+        <activity android:name=".FacultyFineArtsInfoActivity" />
+        <activity android:name=".FacultyBiologicalScienceInfoActivity" />
+        <activity android:name=".FacultyEarthInfoActivity" />
+        <activity android:name=".FacultyEngineeringInfoActivity" />
+        <activity android:name=".FacultyPharmacyInfoActivity" />
+        <activity android:name=".FacultySocialScienceInfoActivity" />
+        <activity android:name=".FacultyLawInfoActivity" />
+        <activity android:name=".Profile_Activity" />
+        <activity
+            android:name=".Home2Activity"
+            android:label="Home" />
+        <activity android:name=".MapMenu" />
+        <activity android:name=".FacultyMenu" />
+        <activity android:name=".TransportChytali" />
+        <activity android:name=".ExcitingPlacesActivity" />
+        <activity android:name=".HeadOfDUInfoActivity" />
+        <activity android:name=".InstituesInfoActivity" />
+        <activity android:name=".TransportTorongo" />
+        <activity android:name=".TransportHemonto"/>
+        <activity android:name=".TransportBaishakhi"/>
+        <activity android:name=".TransportKhonika"/>
+        <activity android:name=".DeanActivity" />
+        <activity android:name=".CommitteeMenu" />
+        <activity android:name=".EditorialCommitteActivity" />
+        <activity android:name=".FacultyActivity" />
+        <activity android:name=".TransportMenu" />
         <activity android:name=".MapActivityInfrastructure" />
 
         <meta-data
@@ -39,7 +69,9 @@
         <activity android:name=".HomeActivity" />
         <activity android:name=".CalendarClass" />
         <activity android:name=".CalendarListViewEvent" />
-        <activity android:name=".DepartmentInfoActivity" />
+        <activity android:name=".FacultyScienceInfoActivity" />
+        <activity android:name=".FacultyCommerceInfoActivity" />
+        <activity android:name=".FacultyArtsInfoActivity" />
         <activity android:name=".HallInfoActivity" />
         <activity android:name=".HallViewActivity" />
         <activity android:name=".Map_Activity" />
@@ -47,7 +79,8 @@
         <activity android:name=".ClubViewActivity" />
         <activity android:name=".OfficeInfoActivity" />
         <activity android:name=".OfficeViewActivity" />
-        <activity android:name=".PersonalCalendarClass" />
+        <activity android:name=".CalendarSpecificClass" />
+        <activity android:name=".ImplementationCommitteActivity" />
     </application>
 
 </manifest>

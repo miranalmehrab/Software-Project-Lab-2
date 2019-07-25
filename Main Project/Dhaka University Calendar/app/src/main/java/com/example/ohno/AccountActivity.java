@@ -101,16 +101,15 @@ public class AccountActivity extends AppCompatActivity {
         departmentFunctions();
         academicYearFunction();
 
-        mLogOutButton = (Button) findViewById(R.id.logOutBtn);
-
-        mLogOutButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FirebaseAuth.getInstance().signOut();
-            }
-        });
 
 
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(AccountActivity.this , Home2Activity.class);
+        startActivity(intent);
     }
 
     public void academicYearFunction() {

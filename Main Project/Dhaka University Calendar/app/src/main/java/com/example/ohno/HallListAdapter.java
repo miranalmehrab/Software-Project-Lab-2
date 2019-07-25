@@ -37,7 +37,6 @@ public class HallListAdapter extends ArrayAdapter<Hall> {
 
         public MyviewHolder(View v) {
             this.hallName = (TextView) v.findViewById(R.id.name);
-            this.faculty = (TextView) v.findViewById(R.id.establishedYear);
             this.hallImg = (ImageView) v.findViewById(R.id.image);
         }
 
@@ -67,7 +66,6 @@ public class HallListAdapter extends ArrayAdapter<Hall> {
         Hall hall = hallList.get(position);
 
         holder.hallName.setText(hall.getName());
-        holder.faculty.setText(hall.getEstablishedYear());
 
        // Picasso.get().load(hall.getImageUrl()).into(hallImageView);
         Glide.with(context).load(hall.getImage())

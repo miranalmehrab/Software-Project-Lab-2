@@ -47,7 +47,7 @@ public class Map_Activity extends FragmentActivity implements OnMapReadyCallback
 
     private final static String TAG = "Map Class";
 
-    // search location in search bar
+    // search location22 in search bar
 
     private  EditText searchKey;
     private ImageButton searchBtn;
@@ -151,7 +151,7 @@ public class Map_Activity extends FragmentActivity implements OnMapReadyCallback
 
    /* void searchForLocation()
     {
-        Log.d(TAG,"Search for location called");
+        Log.d(TAG,"Search for location22 called");
         searchKey.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {

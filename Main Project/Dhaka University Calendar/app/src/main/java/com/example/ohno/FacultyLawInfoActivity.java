@@ -17,7 +17,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class DepartmentInfoActivity extends AppCompatActivity {
+public class FacultyLawInfoActivity extends AppCompatActivity {
 
     List<Department> list ;
     ListView listView;
@@ -36,14 +36,14 @@ public class DepartmentInfoActivity extends AppCompatActivity {
 
         listView = (ListView) findViewById(R.id.departMentListView);
 
-        Call<List<Department>> call = api.getDepartments();
+        Call<List<Department>> call = api.getLawDepartments();
 
         call.enqueue(new Callback<List<Department>>() {
             @Override
             public void onResponse(Call<List<Department>> call, Response<List<Department>> response) {
                 final List<Department> departments = response.body();
 
-                DepartmentListAdapter  departmentListAdapter = new DepartmentListAdapter(DepartmentInfoActivity.this ,
+                DepartmentListAdapter  departmentListAdapter = new DepartmentListAdapter(FacultyLawInfoActivity.this ,
                         R.layout.department_list_item ,departments );
                 listView.setAdapter(departmentListAdapter);
                 listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -51,8 +51,8 @@ public class DepartmentInfoActivity extends AppCompatActivity {
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         Department departmentTemp = departments.get(position);
 
-                       // Toast.makeText(DepartmentInfoActivity.this , departmentTemp.getName(),Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(DepartmentInfoActivity.this , DepartmentViewActivity.class);
+                       // Toast.makeText(FacultyScienceInfoActivity.this , departmentTemp.getName(),Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(FacultyLawInfoActivity.this , DepartmentViewActivity.class);
                         intent.putExtra("departmentCurrent" ,  departmentTemp);
                         startActivity(intent);
 
@@ -63,16 +63,15 @@ public class DepartmentInfoActivity extends AppCompatActivity {
                     Log.d("id" , d.getId() );
                     Log.d("name" , d.getName() );
                     Log.d("description" , d.getDescription() );
-                    Log.d("faculty" , d.getFaculty() );
                     Log.d("image",d.getImage());
-                    Toast.makeText(DepartmentInfoActivity.this, d.getName() , Toast.LENGTH_SHORT).show();
+                    Toast.makeText(FacultyLawInfoActivity.this, d.getName() , Toast.LENGTH_SHORT).show();
                 }
 
             }
 
             @Override
             public void onFailure(Call<List<Department>> call, Throwable t) {
-                Toast.makeText(DepartmentInfoActivity.this, t.getMessage() , Toast.LENGTH_SHORT).show();
+                Toast.makeText(FacultyLawInfoActivity.this, t.getMessage() , Toast.LENGTH_SHORT).show();
             }
         });
 

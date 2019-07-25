@@ -32,12 +32,10 @@ public class ClubListAdapter extends ArrayAdapter<Club> {
     private class MyviewHolder{
 
         TextView clubName;
-        TextView establishYear;
         ImageView clubImg;
 
         public MyviewHolder(View v) {
             this.clubName = (TextView) v.findViewById(R.id.name);
-            this.establishYear = (TextView) v.findViewById(R.id.establishedYear);;
             this.clubImg = (ImageView) v.findViewById(R.id.image);;
         }
 
@@ -67,7 +65,6 @@ public class ClubListAdapter extends ArrayAdapter<Club> {
         Club club = clubList.get(position);
 
         holder.clubName.setText(club.getName());
-        holder.establishYear.setText(club.getEstablishedYear());
 
        // Picasso.get().load(club.getImageUrl()).into(clubImageView);
         Glide.with(context).load(club.getImage())

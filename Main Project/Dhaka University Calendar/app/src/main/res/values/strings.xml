@@ -32,5 +32,9 @@
         <item>4th Year</item>
         <item>5th Year</item>
     </string-array>
+    <string name="title_activity_home2">Home2Activity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 
 </resources>

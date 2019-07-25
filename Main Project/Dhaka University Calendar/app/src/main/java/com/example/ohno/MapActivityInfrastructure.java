@@ -50,7 +50,7 @@ public class MapActivityInfrastructure extends FragmentActivity implements OnMap
 
     private final static String TAG = "Map Class";
 
-    // search location in search bar
+    // search location22 in search bar
 
     private  EditText searchKey;
     private ImageButton searchBtn;

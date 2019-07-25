@@ -32,12 +32,10 @@ public class OfficeListAdapter extends ArrayAdapter<Office> {
     private class MyviewHolder{
 
         TextView officeName;
-        TextView establishYear;
         ImageView officeImg;
 
         public MyviewHolder(View v) {
             this.officeName = (TextView) v.findViewById(R.id.name);
-            this.establishYear = (TextView) v.findViewById(R.id.establishedYear);;
             this.officeImg = (ImageView) v.findViewById(R.id.image);;
         }
 
@@ -67,8 +65,6 @@ public class OfficeListAdapter extends ArrayAdapter<Office> {
         Office office = officeList.get(position);
 
         holder.officeName.setText(office.getName());
-        holder.establishYear.setText(office.getEstablishedYear());
-
        // Picasso.get().load(office.getImageUrl()).into(officeImageView);
         Glide.with(context).load(office.getImage())
                 .placeholder(R.drawable.dulogo).into(holder.officeImg);

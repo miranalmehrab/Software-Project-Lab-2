@@ -12,8 +12,7 @@ public class Hall implements Serializable {
     private  String name;
     @SerializedName("description")
     private  String description;
-    @SerializedName("establishedYear")
-    private  String establishedYear;
+
     @SerializedName("image")
     private String image;
     @SerializedName("longitude")
@@ -21,21 +20,19 @@ public class Hall implements Serializable {
     @SerializedName("latitude")
     private String latitude;
 
-    public Hall(String id, String name, String description, String establishedYear, String image, String longitude, String latitude) {
+    public Hall(String id, String name, String description,  String image, String longitude, String latitude) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.establishedYear = establishedYear;
         this.image = image;
         this.longitude = longitude;
         this.latitude = latitude;
     }
 
-    public Hall(String id, String name, String description, String establishedYear , String image) {
+    public Hall(String id, String name, String description, String image) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.establishedYear = establishedYear;
         this.image = image;
     }
 
@@ -49,10 +46,6 @@ public class Hall implements Serializable {
 
     public String getDescription() {
         return description;
-    }
-
-    public String getEstablishedYear() {
-        return establishedYear;
     }
 
     public String getImage() {

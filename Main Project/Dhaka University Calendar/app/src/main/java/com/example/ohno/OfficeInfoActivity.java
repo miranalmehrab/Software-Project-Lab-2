@@ -51,7 +51,7 @@ public class OfficeInfoActivity extends AppCompatActivity {
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         Office officeTemp = officeList.get(position);
 
-                       // Toast.makeText(DepartmentInfoActivity.this , departmentTemp.getName(),Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(FacultyScienceInfoActivity.this , departmentTemp.getName(),Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(OfficeInfoActivity.this , OfficeViewActivity.class);
                         intent.putExtra("officeCurrent" ,  officeTemp);
                         startActivity(intent);
@@ -63,7 +63,6 @@ public class OfficeInfoActivity extends AppCompatActivity {
                     Log.d("id" , d.getId() );
                     Log.d("name" , d.getName() );
                     Log.d("description" , d.getDescription() );
-                    Log.d("establishedYear" , d.getEstablishedYear() );
                     Log.d("image",d.getImage());
                    // Toast.makeText(HallInfoActivity.this, d.getName() , Toast.LENGTH_SHORT).show();
                 }
